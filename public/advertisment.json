@@ -1,0 +1,39 @@
+[
+ 
+     {
+       "img": " https://i.ibb.co/yfZMrcL/g1-1.jpg",
+       "location": "123 Main Street, Cityville",
+       "price": "500000",
+       "verification_status": "Verified",
+       "title": "Beautiful Family Home",
+       "description": "Welcome to this beautiful family home located at 123 Main Street in the heart of Cityville. This spacious and modern residence features three bedrooms, two bathrooms, a gourmet kitchen, and a large backyard perfect for family gatherings and entertaining guests. The home is adorned with elegant finishes and offers a comfortable and stylish living environment. Don't miss the opportunity to make this your dream home! Contact our agent, John Doe, for more details.",
+       "agent_name": "John Doe"
+     },
+     {
+       "img": "https://i.ibb.co/Wy9S32j/g1-2.jpg",
+       "location": "456 Elm Avenue, Townsville",
+       "price": "350000",
+       "verification_status": "Verified",
+       "title": "Cozy Townhouse",
+       "description": "Discover the charm of this cozy townhouse located at 456 Elm Avenue in the delightful town of Townsville. Perfect for first-time homebuyers, this two-bedroom gem offers a warm and inviting atmosphere. The interior is thoughtfully designed, featuring an open-concept layout, modern amenities, and plenty of natural light. Enjoy the convenience of urban living in a peaceful setting. Contact our agent, Jane Smith, to schedule a viewing.",
+       "agent_name": "Jane Smith"
+     },
+     {
+       "img": "https://i.ibb.co/g7g0Zhf/g1-3.jpg",
+       "location": "789 Oak Lane, Villageton",
+       "price": "750000",
+       "verification_status": "Pending Verification",
+       "title": "Luxurious Estate",
+       "description": "Indulge in the opulence of this luxurious estate situated at 789 Oak Lane in the prestigious neighborhood of Villageton. This grand residence boasts five bedrooms, each with its own ensuite bathroom, a gourmet kitchen with top-of-the-line appliances, a private swimming pool, and breathtaking scenic views. The elegant architecture and meticulous attention to detail make this estate a true masterpiece. Contact our agent, Bob Johnson, for an exclusive tour.",
+       "agent_name": "Bob Johnson"
+     },
+     {
+       "img": "https://i.ibb.co/dc8FN55/g1-4.jpg",
+       "location": "101 Pine Street, Hamletville",
+       "price": "250000",
+       "verification_status": "Verified",
+       "title": "Quaint Cottage",
+       "description": "Step into the charm of this quaint cottage nestled at 101 Pine Street in the picturesque town of Hamletville. This two-bedroom retreat features a cozy living room with a fireplace, a charming kitchen, and a delightful garden with vibrant flowers. The ambiance is perfect for those seeking a peaceful and idyllic lifestyle. Whether you're looking for a weekend getaway or a permanent residence, this cottage is a true gem. Contact our agent, Alice Brown, for more information.",
+       "agent_name": "Alice Brown"
+     }
+   ]

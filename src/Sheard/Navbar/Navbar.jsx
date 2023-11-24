@@ -5,61 +5,61 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import clsx from "clsx";
-import Container from "../../Components/Container";
+import logo from "../../assets/logo.png"
 
 const Navbar = () => {
      const [isSideMenuOpen, setMenu] = useState(false);
-     const navLinks = (<>
+     const navLinks = <>
      <li><NavLink to='/'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
+                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin  dark:text-white"
               }>Home</NavLink></li>
-     <li><NavLink to='/allProperties'  className={({ isActive, isPending }) =>
+     <li><NavLink to='/alljobs'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>All properties</NavLink></li>
+              }>All Jobs</NavLink></li>
+
+    {/* {
+      user?.email && <>
+       <li><NavLink to='/appliedjobs'  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
+              }>Applied Jobs</NavLink></li>
+     <li><NavLink to='/addajobs'  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
+              }>Add a Jobs</NavLink></li>
+     <li><NavLink to='/myjobs'  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
+              }>My Jobs</NavLink></li>
+      </>
+    } */}
+
+     {/* <li><NavLink to='/blogs'  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
+              }>Blogs</NavLink></li>
+     <li><NavLink to='/about'  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
+              }>About</NavLink></li>
      <li><NavLink to='/contact'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>Contact Us</NavLink></li>
-     <li><NavLink to='/features'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>Features</NavLink></li>
+              }>Contact</NavLink></li> */}
+    
+     
      </>
-          
-     )
           
      
      return (
-          <Container>
-           <main>
-      <nav className="flex justify-between px-8 items-center py-6   ">
+      <nav className="flex  justify-between px-20 items-center py-2 ">
         <div className="flex items-center gap-8">
           <section className="flex items-center gap-4">
             
             {/* logo */}
-            <Link href={"/"} className="text-4xl font-mono">
-              logo
+            <Link to={'/'} className="text-4xl font-mono">
+              <img src={logo} alt="" className="w-52" />
             </Link>
           </section>
           
         </div>
 
         {/* sidebar mobile menu */}
-        <div
-          className={clsx(
-            " fixed h-full w-screen lg:hidden bg-black/10  backdrop-blur-sm top-0 right-0  -translate-x-full  transition-all ",
-            isSideMenuOpen && "translate-x-0"
-          )}
-        >
-          <section className="text-black bg-white flex-col absolute right-1 top-0 h-screen p-8 gap-8 z-50 w-56 flex  ">
-            <IoCloseOutline
-              onClick={() => setMenu(false)}
-              className="mt-0 mb-8 text-3xl cursor-pointer"
-            />
-
-            <ul>
-               {navLinks}
-            </ul>
-          </section>
-        </div>
+        
 
         {/* last section */}
         <section className="flex items-center gap-4">
@@ -85,9 +85,6 @@ const Navbar = () => {
           {/* avtar img */}
         </section>
       </nav>
-      <hr className=" " />
-    </main>    
-          </Container>
           
      );
 };
