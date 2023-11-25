@@ -1,5 +1,4 @@
 import { CiUser } from 'react-icons/ci';
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineSetting ,AiOutlineLogout} from 'react-icons/ai';
 import { MdOutlineDashboardCustomize,MdNotificationsActive } from 'react-icons/md';
 import { CgProfile } from 'react-icons/cg';
@@ -56,9 +55,24 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
-      <li>
-        
+      {
+
+      user && <li>
+        <NavLink
+          to="/allProperties"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? " dark:hover:text-white  bg-[#ffb900] px-3  py-1 rounded text-lg font-semibold   underline"
+              : "text-lg font-semibold  dark:text-white"
+          }
+        >
+          All Properties
+        </NavLink>
       </li>
+      }
+      
     </>
   );
 
@@ -83,7 +97,7 @@ const Navbar = () => {
           
           <div className="navbar-end ">
           <div className=" hidden lg:flex">
-          <ul className="  menu-horizontal gap-10 px-1">
+          <ul className="  menu-horizontal gap-8 px-8">
                {navLinks}
           </ul>
           </div>

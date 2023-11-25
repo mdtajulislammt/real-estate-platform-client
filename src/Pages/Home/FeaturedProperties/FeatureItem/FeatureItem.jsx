@@ -36,7 +36,7 @@ const FeatureItem = ({ card }) => {
 
       <div className=" w-full flex-1 px-8 py-10  lg:pt-20 bg-black lg:rounded-r-3xl rounded-b-3xl ">
         <h2 className=" text-4xl font-bold mb-14 text-[#ffb900]  text-center">${card.price} <span className=" text-base text-slate-300">/month</span></h2>
-        <div className=" flex gap-4">
+        <div className=" lg:flex gap-4">
           <p className=" flex items-center gap-2 cursor-pointer bg-[#ffb900] px-2 p-1 rounded "><FaPhone /> Call</p>
           <p className=" flex items-center gap-2 cursor-pointer  bg-[#ffb900] px-2 p-1 rounded"><FaVoicemail /> Email</p>
           <p className=" flex items-center gap-2 cursor-pointer  bg-[#ffb900] px-2 p-1 rounded"><FaPhone /> WhatsApp</p>

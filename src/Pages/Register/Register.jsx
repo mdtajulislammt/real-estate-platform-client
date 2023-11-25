@@ -1,46 +1,55 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Container from "../../Components/Container";
-import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import Container from "../../Components/Container";
 import useAuth from "../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
-const LogIn = () => {
-  const {signIn,user}= useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const loc = location.state?.form?.pathname || '/' ;
-  console.log(user);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+const Register = () => {
+     const {signUp,updateUserprofile} = useAuth();
+     const navigate = useNavigate()
+     const {
+          register, handleSubmit,reset, formState: { errors },} = useForm();
 
-  const onSubmit =(data) =>{
-    signIn(data.email, data.password)
+     const onSubmit = data => {
+          signUp(data.email, data.password)
           .then(result=>{
-               console.log(result.user);
+            const loggedUser = result.user;
+            console.log(loggedUser);
             Swal.fire({
-              title: "User Login Successfully",
-              showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeInUp
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOutDown
-                  animate__faster
-                `
-              }
-            });
-            navigate(loc,{replace: true});
+               title: "User created Successfully",
+               showClass: {
+                 popup: `
+                   animate__animated
+                   animate__fadeInUp
+                   animate__faster
+                 `
+               },
+               hideClass: {
+                 popup: `
+                   animate__animated
+                   animate__fadeOutDown
+                   animate__faster
+                 `
+               }
+          });
+          navigate('/')
+            updateUserprofile(data.name, data.img)
+            console.log(data.name , data.img)
+            .then(()=>{
+                if(data.insertedId){
+                    console.log(data.insertedId);
+                  reset();
+              
+              
+                }
+               })
+               
+            .catch(err => {
+              console.log(err);
+            })
           })
-  }
+        }
      return (
           <Container>
                <section className="h-screen">
@@ -49,7 +58,7 @@ const LogIn = () => {
       className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
       {/* <!-- Left column container with background--> */}
       <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
-        <h2 className=" text-5xl font-semibold bg-black rounded-t-xl text-[#ffb900] p-2 text-center">LogIn</h2>
+        <h2 className=" text-5xl font-semibold bg-black rounded-t-xl text-[#ffb900] p-2 text-center">SignUp</h2>
         <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
           className="w-full bg-[#ffb900] p-10"
@@ -59,6 +68,28 @@ const LogIn = () => {
       {/* <!-- Right column container with form --> */}
       <div className="md:w-8/12 lg:ml-6 lg:w-5/12 p-4 rounded-lg border-2 border-[#ffb900] shadow-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
+          {/* <!-- Name input --> */}
+          <div className="relative mb-6" data-te-input-wrapper-init>
+            <input
+            {...register("name",{ required: true })} 
+              type="text"
+              className="peer block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity"
+              
+              placeholder="Full Name" />
+              {errors.name && <span className=" text-red-600 my-2 text-sm">Email is required</span>}
+            
+          </div>
+          {/* <!-- Image input --> */}
+          <div className="relative mb-6" data-te-input-wrapper-init>
+            <input
+            {...register("img",{ required: true })} 
+              type="text"
+              className="peer block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity"
+              
+              placeholder="Image" />
+              {errors.img && <span className=" text-red-600 my-2 text-sm">Email is required</span>}
+            
+          </div>
           {/* <!-- Email input --> */}
           <div className="relative mb-6" data-te-input-wrapper-init>
             <input
@@ -108,7 +139,7 @@ const LogIn = () => {
           </div>
 
           {/* <!-- Submit button --> */}
-          <input type="submit" value="SignIn" className="  border-2 border-[#ffb900] bg-[#ffb900] flex gap-2 items-center justify-center w-full mb-5 rounded  py-2.5 px-5 font-medium uppercase text-gray-800 transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-y-0 before:bg-[#ffb900] before:transition-transform before:duration-300 before:content-[''] hover:text-white cursor-pointer before:hover:scale-y-100" />
+          <input type="submit" value="SignUp" className="  border-2 border-[#ffb900] bg-[#ffb900] flex gap-2 items-center justify-center w-full mb-5 rounded  py-2.5 px-5 font-medium uppercase text-gray-800 transition-colors before:absolute before:left-0 before:top-0 before:-z-10 before:h-full before:w-full before:origin-top-left before:scale-y-0 before:bg-[#ffb900] before:transition-transform before:duration-300 before:content-[''] hover:text-white cursor-pointer before:hover:scale-y-100" />
           
 
           {/* <!-- Divider --> */}
@@ -122,14 +153,13 @@ const LogIn = () => {
 
         </form>
           <SocialLogin></SocialLogin>
-        <p className="mt-3 text-xl  text-[#000000] pl-2 rounded font-semibold"><small>New Here? <Link to={'/register'} className=" text-blue-600 hover:underline">Create an account</Link> </small></p>
+        <p className="mt-3 text-xl  text-[#000000] pl-2 rounded font-semibold"><small>New Here? <Link to={'/login'} className=" text-blue-600 hover:underline">Create an account</Link> </small></p>
       </div>
     </div>
   </div>
 </section>
           </Container>
-          
      );
 };
 
-export default LogIn;
+export default Register;

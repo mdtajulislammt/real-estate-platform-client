@@ -15,7 +15,7 @@ const FeaturedPlaces = () => {
       heading2={' Places IN NYC'}
       shortDes={'People Love Living with Realton'}
       ></SectionTitle>
-          <div className="w-full grid lg:columns-4 col-span-2 gap-3 py-10  ">
+          <div className="w-full grid lg:columns-4  col-span-2 gap-3 py-10  ">
                {/* image 1 */}
                <div className="col-span-4 ">
                  <div className=" relative   ">
@@ -26,7 +26,7 @@ const FeaturedPlaces = () => {
                <h1 className=" bg-[#ffb900] p-2 text-xl font-semibold text-center">View Listing</h1>   
                </div>
                {/* image 2 */}
-               <div className="col-span-1 h-full ">
+               <div className="md:col-span-1 col-span-4  h-full ">
                  <div className=" relative   ">
                     <img src={img2} alt="" className="w-full h-full " />
                     <h2 className=" absolute top-0 pl-4 text-xl font-bold text-white bg-[#00000065] h-full w-full">Coney Island</h2>
@@ -35,7 +35,7 @@ const FeaturedPlaces = () => {
                <h1 className=" bg-[#ffb900] p-2 text-xl font-semibold text-center">View Listing</h1>   
                </div>
                {/* image 3 */}
-               <div className="col-span-1 h-full">
+               <div className="md:col-span-1 col-span-4 h-full">
                  <div className=" relative   ">
                     <img src={img3} alt="" className="w-full h-full" />
                     <h2 className=" absolute top-0 pl-4 text-xl font-bold text-white bg-[#00000065] h-full w-full">Crown Heights</h2>
@@ -44,7 +44,7 @@ const FeaturedPlaces = () => {
                <h1 className=" bg-[#ffb900] p-2 text-xl font-semibold text-center">View Listing</h1>   
                </div>
                {/* image 4 */}
-               <div className="col-span-1 h-full">
+               <div className="md:col-span-1 col-span-4 h-full">
                  <div className=" relative   ">
                     <img src={img4} alt="" className="w-full h-full" />
                     <h2 className=" absolute top-0 pl-4 text-xl font-bold text-white bg-[#00000065] h-full w-full">Clinton hill</h2>
@@ -53,7 +53,7 @@ const FeaturedPlaces = () => {
                <h1 className=" bg-[#ffb900] p-2 text-xl font-semibold text-center">View Listing</h1>   
                </div>
                {/* image 5 */}
-               <div className="col-span-1 h-full ">
+               <div className="md:col-span-1 col-span-4 h-full ">
                  <div className=" relative   ">
                     <img src={img5} alt="" className="w-full h-full" />
                     <h2 className=" absolute top-0 pl-4 text-xl font-bold text-white bg-[#00000065] h-full w-full">Williamsburg</h2>
@@ -65,7 +65,7 @@ const FeaturedPlaces = () => {
                <div className="col-span-4 ">
                  <div className=" relative   ">
                     <img src={img6} alt="" className="w-full " />
-                    <h2 className=" absolute top-0 pl-4 text-4xl font-bold text-white bg-[#00000065] h-full w-full">Downtown Brooklyn</h2>
+                    <h2 className=" absolute top-0 pl-4 md:text-4xl  font-bold text-white bg-[#00000065] h-full w-full">Downtown Brooklyn</h2>
                     
                </div>
                <h1 className=" bg-[#ffb900] p-2 text-xl font-semibold text-center">View Listing</h1>   
