@@ -1,92 +1,144 @@
-
-import { FiMenu } from "react-icons/fi";
+import { CiUser } from 'react-icons/ci';
 import { AiOutlineShoppingCart } from "react-icons/ai";
-// import { IoCloseOutline } from "react-icons/io5";
-// import { useState } from "react";
+import { AiOutlineSetting ,AiOutlineLogout} from 'react-icons/ai';
+import { MdOutlineDashboardCustomize,MdNotificationsActive } from 'react-icons/md';
+import { CgProfile } from 'react-icons/cg';
 import { Link, NavLink } from "react-router-dom";
-// import clsx from "clsx";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
-    //  const [isSideMenuOpen, setMenu] = useState(false);
-     const navLinks = <>
-     <li><NavLink to='/'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin  dark:text-white"
-              }>Home</NavLink></li>
-     <li><NavLink to='/alljobs'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>All Jobs</NavLink></li>
-
-    {/* {
-      user?.email && <>
-       <li><NavLink to='/appliedjobs'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>Applied Jobs</NavLink></li>
-     <li><NavLink to='/addajobs'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>Add a Jobs</NavLink></li>
-     <li><NavLink to='/myjobs'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>My Jobs</NavLink></li>
-      </>
-    } */}
-
-     {/* <li><NavLink to='/blogs'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>Blogs</NavLink></li>
-     <li><NavLink to='/about'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>About</NavLink></li>
-     <li><NavLink to='/contact'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin dark:text-white"
-              }>Contact</NavLink></li> */}
-    
-     
-     </>
-          
-     
-     return (
-      <nav className="flex  justify-between px-20 items-center py-2 ">
-        <div className="flex items-center gap-8">
-          <section className="flex items-center gap-4">
-            
-            {/* logo */}
-            <Link to={'/'} className="text-4xl font-mono">
-              <img src={logo} alt="" className="w-52" />
-            </Link>
-          </section>
-          
-        </div>
-
-        {/* sidebar mobile menu */}
+  const {user,logOut} = useAuth();
+  const handleLogOut =()=>{
+        logOut();  
+  }
+  const navLinks = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? " dark:hover:text-white  bg-[#ffb900] px-3  py-1 rounded text-lg font-semibold   underline"
+              : "text-lg font-semibold  dark:text-white"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? " dark:hover:text-white  bg-[#ffb900] px-3  py-1 rounded text-lg font-semibold   underline"
+              : "text-lg font-semibold  dark:text-white"
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? " dark:hover:text-white  bg-[#ffb900] px-3  py-1 rounded text-lg font-semibold   underline"
+              : "text-lg font-semibold  dark:text-white"
+          }
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
         
+      </li>
+    </>
+  );
 
-        {/* last section */}
-        <section className="flex items-center gap-4">
-          {/* NavLink */}
-        
-          <ul className=" flex gap-5">
-          {navLinks}
+  
+
+  return (
+    <div className="navbar md:px-14 lg:px-20 px-5 dark:text-white dark:bg-[#242323]">
+          <div className="navbar-start">
+          <div className="dropdown ">
+               <label tabIndex={0} className="btn btn-ghost lg:hidden ">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+               </label>
+               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box dark:bg-[#242323] w-40">
+               {navLinks}
+               </ul>
+          </div>
+          <Link className=" flex items-center lg:w-52 ">
+               <img src={logo} alt="" className=" w-8 md:w-44"/>
+              
+          </Link>
+          </div>
+          
+          <div className="navbar-end ">
+          <div className=" hidden lg:flex">
+          <ul className="  menu-horizontal gap-10 px-1">
+               {navLinks}
           </ul>
-          {/* cart icon */}
-          <AiOutlineShoppingCart className="text-3xl" />
-          {/* menu */}
-          <FiMenu
-              onClick={() => setMenu(true)}
-              className="text-3xl cursor-pointer lg:hidden"
-            />
-          {/* <Image
-            width={40}
-            height={40}
-            className="h-8 w-8 rounded-full "
-            src="https://i.pravatar.cc/150?img=52"
-            alt="avatar-img"
-          /> */}
-          {/* avtar img */}
-        </section>
-      </nav>
-          
-     );
+          </div>
+    {
+      user ?  <div className="dropdown">
+      <label tabIndex={0} className=" cursor-pointer  ">
+        {
+          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#3994e4] w-10 h-10 md:h-12 md:w-12" /> : <CiUser className=" cursor-pointer border-2  border-[#3994e4] text-black bg-slate-300 p-1 w-10 h-10 rounded-full"/>
+        }
+      
+      </label>
+      <ul tabIndex={0} className="menu menu-sm  dropdown-content right-0 h-96 mt-5 w-80 z-[1] p-3 shadow border-4 border-[#3994e4] dark:bg-black  bg-slate-100  rounded-lg">
+     
+     <div className=" flex gap-4">
+      <div>
+      {
+          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#3994e4] w-6 h-6 md:w-8  md:h-8 " /> : <CiUser className=" cursor-pointer text-black bg-slate-300 p-1 w-10 h-10 mx-auto rounded-full"/>
+        }
+      </div>
+      <div className=" flex justify-center">
+       <div>
+       <h2 className=" text-center dark:text-white text-lg font-semibold mt-2">{user.displayName}</h2>
+       <h2 className=" text-center dark:text-white ">{user.email}</h2>
+       </div>
+        
+      </div>
+     </div>
+
+      <div className=" border-t-2 my-2">
+        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><CgProfile/> <span className="  hover:text-[#ffffff]">Profile</span></h2>
+        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><MdOutlineDashboardCustomize/> <span className="  hover:text-[#ffffff]">Dashboard</span></h2>
+        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><MdNotificationsActive/> <span className="  hover:text-[#ffffff]">Notifications</span></h2>
+        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><AiOutlineSetting/> <span className="  hover:text-[#ffffff]">User Settings</span></h2>
+        <div className=" w-full h-[1px] my-5 bg-[#3994e4]"></div>
+       <button onClick={handleLogOut} className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] w-full p-2 rounded-lg hover:text-black items-center  gap-2 my-2 cursor-pointer text-b lack"><AiOutlineLogout/> <span className="  hover:text-[#ffffff]">LogOut</span></button>
+      </div>
+      
+      </ul>
+    </div>
+      :<NavLink
+      to="/login"
+      className={({ isActive, isPending }) =>
+        isPending
+          ? "pending"
+          : isActive
+          ? " dark:hover:text-white  bg-[#ffb900] px-3  py-1 rounded text-lg font-semibold   underline"
+          : "text-lg font-semibold  dark:text-white"
+      }
+    >
+      LogIn
+    </NavLink>
+    }
+  </div>
+          </div>
+  );
 };
 
 export default Navbar;

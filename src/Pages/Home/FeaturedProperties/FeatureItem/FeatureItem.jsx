@@ -2,7 +2,6 @@ import { FaLocationDot,FaBed,FaBath,FaVectorSquare, FaPhone,  FaVoicemail } from
 import { MdVerified } from "react-icons/md";
 import PropTypes from 'prop-types';
 const FeatureItem = ({ card }) => {
-  console.log(card.img);
   return (
     <div className=" lg:flex  justify-between  bg-base-100 rounded-3xl shadow-xl ">
       <div className="lg:flex lg:rounded-l-3xl rounded-t-r-xl card-side   lg:w-9/12 ">
@@ -25,7 +24,7 @@ const FeatureItem = ({ card }) => {
           <p className=" flex items-center gap-2 text-gray-500"><MdVerified />{card.verification_status}</p>
           <p className="lg:w-4/5 my-3 text-gray-500">{card.description.slice(0, 70)} <span className=" font-medium">. . . .See More</span></p>
           <div className=" lg:flex justify-between text-center text-gray-500 py-2 border border-gray-400 rounded-md">
-            <p className=" flex items-center gap-2 px-5"><FaBed/> 3 bedroom</p>
+            <p className=" flex items-center gap-2 px-2"><FaBed/> 3 bedroom</p>
             <p className="flex items-center gap-2 px-5 border-x border-gray-400"><FaBath/> 3 bathroom</p>
             <p className=" flex items-center gap-2 px-5 "><FaVectorSquare/>820 sqft</p>
           </div>

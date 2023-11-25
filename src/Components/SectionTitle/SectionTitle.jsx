@@ -14,8 +14,8 @@ export default SectionTitle;
 
 SectionTitle.propTypes = {
 
-     subHeading: PropTypes.object,
-     heading: PropTypes.object,
-     shortDes: PropTypes.object,
-     heading2: PropTypes.object,
+     subHeading: PropTypes.string,
+     heading: PropTypes.string,
+     shortDes: PropTypes.string,
+     heading2: PropTypes.string,
      }
