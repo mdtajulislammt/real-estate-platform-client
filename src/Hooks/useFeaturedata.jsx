@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
+
+import useAxiosPublic from "./useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 
 const useFeaturedata = () => {
-     const [features,setFeatures] = useState([])
-     // const [loading, setLoading] = useState(true)
+     const axiosPublic = useAxiosPublic();
 
-     useEffect(()=>{
-          fetch('/advertisment.json')
-          .then(res=>res.json())
-          .then(data=>{
-               
-               setFeatures(data)
-               // setLoading(false)
-          })
-     },[])
-     return [features]
+     const {data: properties=[], isPending:loading,refetch} = useQuery({
+          queryKey:['featureProperties'],
+          queryFn:async()=>{
+               const res = await axiosPublic.get('/featureProperties');
+               return res.data
+          }
+         })
+     return [properties,loading,refetch]
 };
 
 export default useFeaturedata;

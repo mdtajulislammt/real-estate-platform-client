@@ -1,15 +1,25 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const SocialLogin = () => {
   const { googleSignIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const loc = location.state?.form?.pathname || '/' ;
+  const axiosPublic = useAxiosPublic();
   const handleGoogleSignIn = () => {
-    googleSignIn()
-    .then((res) => {
+    googleSignIn().then((res) => {
       console.log(res.user);
-      navigate('/')
+      const userInfo = {
+        email: res.user?.email,
+        name: res.user?.displayName,
+      };
+      axiosPublic.post("/users", userInfo).then((res) => {
+        console.log(res.data);
+        navigate(loc,{replace: true});
+      });
       
     });
   };

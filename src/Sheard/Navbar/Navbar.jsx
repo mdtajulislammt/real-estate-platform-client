@@ -128,7 +128,7 @@ const Navbar = () => {
 
       <div className=" border-t-2 my-2">
         <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><CgProfile/> <span className="  hover:text-[#ffffff]">Profile</span></h2>
-        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><MdOutlineDashboardCustomize/> <span className="  hover:text-[#ffffff]">Dashboard</span></h2>
+        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><MdOutlineDashboardCustomize/> <Link to={'/dashboard'} className="  hover:text-[#ffffff]">Dashboard</Link></h2>
         <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><MdNotificationsActive/> <span className="  hover:text-[#ffffff]">Notifications</span></h2>
         <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><AiOutlineSetting/> <span className="  hover:text-[#ffffff]">User Settings</span></h2>
         <div className=" w-full h-[1px] my-5 bg-[#3994e4]"></div>

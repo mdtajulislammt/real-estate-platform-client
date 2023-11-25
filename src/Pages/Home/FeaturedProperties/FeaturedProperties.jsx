@@ -7,7 +7,8 @@ import FeatureItem from "./FeatureItem/FeatureItem";
 
 
 const FeaturedProperties = () => {
-  const [features] = useFeaturedata();
+  const [properties] = useFeaturedata();
+  console.log(properties);
   return (
      <Container>
       <SectionTitle 
@@ -17,10 +18,8 @@ const FeaturedProperties = () => {
       shortDes={'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout'}
       ></SectionTitle>
     <div className="grid grid-cols-1 gap-8">
-      {features.map((feature, index) => (<>
-      <FeatureItem key={index} card={feature}></FeatureItem>
-      
-      </>
+      {properties.map((feature) => (<FeatureItem key={feature._id} card={feature}></FeatureItem>
+    
         
         
       ))}

@@ -10,7 +10,7 @@ const LogIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const loc = location.state?.form?.pathname || '/' ;
-  console.log(user);
+
   const {
     register,
     handleSubmit,
