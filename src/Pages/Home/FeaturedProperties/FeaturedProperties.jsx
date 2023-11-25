@@ -3,7 +3,7 @@
 import Container from "../../../Components/Container";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useFeaturedata from "../../../Hooks/useFeaturedata";
-import FeatureItem from "../../../Sheard/Navbar/FeatureItem/FeatureItem";
+import FeatureItem from "./FeatureItem/FeatureItem";
 
 
 const FeaturedProperties = () => {

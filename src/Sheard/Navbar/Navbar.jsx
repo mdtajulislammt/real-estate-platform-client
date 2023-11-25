@@ -1,14 +1,14 @@
 
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IoCloseOutline } from "react-icons/io5";
-import { useState } from "react";
+// import { IoCloseOutline } from "react-icons/io5";
+// import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import clsx from "clsx";
+// import clsx from "clsx";
 import logo from "../../assets/logo.png"
 
 const Navbar = () => {
-     const [isSideMenuOpen, setMenu] = useState(false);
+    //  const [isSideMenuOpen, setMenu] = useState(false);
      const navLinks = <>
      <li><NavLink to='/'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#3994e4] dark:text-[#3994e4] dark:hover:text-white  hover:bg-[#00000000] text-lg font-thin  underline" : "text-lg font-thin  dark:text-white"
