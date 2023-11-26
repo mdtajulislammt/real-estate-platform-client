@@ -18,26 +18,17 @@ const LogIn = () => {
   } = useForm();
 
   const onSubmit =(data) =>{
+    console.log(data.email, data.password);
     signIn(data.email, data.password)
-          .then(result=>{
-               console.log(result.user);
-            Swal.fire({
-              title: "User Login Successfully",
-              showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeInUp
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOutDown
-                  animate__faster
-                `
-              }
-            });
+          .then(res=>{
+               console.log(res);
+               Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Sign In Successfully", 
+                showConfirmButton: false,
+                timer: 1500
+              });
             navigate(loc,{replace: true});
           })
   }

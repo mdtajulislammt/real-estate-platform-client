@@ -31,23 +31,13 @@ const Register = () => {
                 if(res.data.insertedId){
                   console.log(res.data.insertedId);
                 reset();
-             Swal.fire({
-               title: "User created Successfully",
-               showClass: {
-                 popup: `
-                   animate__animated
-                   animate__fadeInUp
-                   animate__faster
-                 `
-               },
-               hideClass: {
-                 popup: `
-                   animate__animated
-                   animate__fadeOutDown
-                   animate__faster
-                 `
-               }
-          });
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: " SignUp Successfully", 
+                  showConfirmButton: false,
+                  timer: 1500
+                });
           navigate(loc,{replace: true});
               }
               })

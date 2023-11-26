@@ -1,16 +1,32 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
+
+import { NavLink, Outlet } from "react-router-dom";
+import { FaEnvelope, FaHome } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
-import AdminRoute from "./DashboardRoute/AdminRoute";
+import AdminRoute from "./DashboardRoute/AdminRoute/AdminRoute";
+import AgentRoute from "./DashboardRoute/AgentRoute/AgentRoute";
+import useAdmin from "../../Hooks/useAdmin";
+import useAgent from "../../Hooks/useAgent";
+
 
 const Dashboard = () => {
+     const [isAdmin] = useAdmin();
+     const [isAgent] = useAgent();
   return (
     <div>
-      <div className=" flex items-center">
-        <aside className="h-screen ">
-          <nav className="flex flex-col justify-between h-full p-5 border-r bg-[#ffb900]">
+      <div className=" flex ">
+        <aside id="sidenav-open" className="bg-[#ffb900] lg:h-[100vh] h-full">
+          <nav className="flex flex-col justify-between bg-[#ffb900] h-full p-5 border-r ">
             <div className="">
-               <AdminRoute></AdminRoute>
+               {
+                    isAdmin ?
+                    <AdminRoute></AdminRoute>
+                     : 
+                     isAgent ? <AgentRoute></AgentRoute> 
+                     : 
+                     <h2>normal user</h2>
+               }
+               
+                {/* all user display route after login  */}
             <div className="divider ">OR</div>
               <NavLink
               to={'/'}
@@ -25,6 +41,18 @@ const Dashboard = () => {
                 <span className="">Home</span>
               </NavLink>
 
+              <NavLink
+              to={'/'}
+                className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? " text-lg font-semibold flex items-center p-3 rounded gap-2 text-white  bg-[#000000]  mb-3  underline"
+                  : "text-lg font-semibold flex items-center p-3  gap-2 text-black mb-3"}
+              >
+                <FaEnvelope />
+                <span className="">Contact</span>
+              </NavLink>
               <NavLink
               to={'/'}
                 className={({ isActive, isPending }) =>
@@ -84,20 +112,17 @@ const Dashboard = () => {
                 <span className="text-xs">Youtube</span>
               </a>
             </div>
+            <a href="#" id="sidenav-close" title="Close Menu" aria-label="Close Menu"></a>
           </nav>
 
-          <a
-            href="#"
-            id="sidenav-close"
-            title="Close Menu"
-            aria-label="Close Menu"
-          ></a>
         </aside>
-      </div>
-      {/* className="overflow-y-scroll h-screen" */}
-      <div>
+
+        {/*  */}
+      <div className="overflow-y-scroll h-screen w-full">
         <Outlet></Outlet>
       </div>
+      </div>
+      
     </div>
   );
 };

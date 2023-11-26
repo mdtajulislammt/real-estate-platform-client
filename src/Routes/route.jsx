@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Dashboard from "../LayOut/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import ManageUsers from "../LayOut/Dashboard/DashboardRoute/AdminRoute/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +35,8 @@ export const router = createBrowserRouter([
      children:[
           //admin routes
           {
-
+               path:'manageUsers',
+               element:<PrivateRoute><ManageUsers></ManageUsers></PrivateRoute>
           },
           //Agent routes
           {

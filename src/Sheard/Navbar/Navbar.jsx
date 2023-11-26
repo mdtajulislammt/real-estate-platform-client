@@ -79,7 +79,7 @@ const Navbar = () => {
   
 
   return (
-    <div className="navbar md:px-14 lg:px-20 px-5 dark:text-white dark:bg-[#242323]">
+    <div className="navbar fixed z-10 bg-[#ffffff80] md:px-14 lg:px-20 px-5 dark:text-white dark:bg-[#242323]">
           <div className="navbar-start">
           <div className="dropdown ">
                <label tabIndex={0} className="btn btn-ghost lg:hidden ">
@@ -90,7 +90,7 @@ const Navbar = () => {
                </ul>
           </div>
           <Link className=" flex items-center lg:w-52 ">
-               <img src={logo} alt="" className=" w-8 md:w-44"/>
+               <img src={logo} alt="" className=" w-32 md:w-44"/>
               
           </Link>
           </div>

@@ -2,7 +2,7 @@ import banner from "../../../assets/Banner1.jpg"
 const Banner = () => {
      return (
           <div>
-               <div className="carousel w-full lg:h-[600px]">
+               <div className="carousel w-full h-screen">
         <div className="carousel-item relative w-full">
           
           <img
