@@ -5,7 +5,6 @@ import AllProperty from "./AllProperty";
 
 const AllProperties = () => {
      const [allProperties] = useAllPropertiesData()
-     console.log(allProperties);
   return (
     <div className="  ">
       <div>

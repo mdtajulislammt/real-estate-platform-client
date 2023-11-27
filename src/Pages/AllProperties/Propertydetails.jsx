@@ -3,14 +3,22 @@ import useAllPropertiesData from "../../Hooks/useAllPropertiesData";
 import Container from "../../Components/Container";
 import { FaBath, FaBed, FaLocationDot, FaRegBookmark, FaVectorSquare } from "react-icons/fa6";
 import PropertyReview from "../../Components/PropertyReview/PropertyReview";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import Review from "../Home/ReviewLatest/Review";
+import useAllReviewData from "../../Hooks/useAllReviewData";
 
 const Propertydetails = () => {
-  
+  const {user} = useAuth();
   const { id } = useParams();
-  const [allProperties] = useAllPropertiesData();
+  const axiosSecure = useAxiosSecure();
+  const [allProperties, ,refetch] = useAllPropertiesData();
+  const [allReviews] = useAllReviewData();
   const property = allProperties?.find((property) => property._id === id);
+  const reviews = allReviews?.filter(review => review.propertyId === id) 
+ 
   const {
-     _id,
     img,
     title,
     location,
@@ -19,6 +27,35 @@ const Propertydetails = () => {
     agentImg,
     priceRange,
   } = property || {};
+
+  const handleWishlist = () =>{
+    const propertyInfo ={
+      email: user.email,
+      img,
+    title,
+    location,
+    agentName,
+    description,
+    agentImg,
+    priceRange,
+
+    }
+   axiosSecure.post('/wishlist',propertyInfo)
+   .then(res=>{
+    console.log(res);
+    if(res.data.insertedId){
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Added to Wishlist successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      refetch();
+    }
+   })
+
+  }
   return (
     <div className="">
       <Container>
@@ -26,8 +63,8 @@ const Propertydetails = () => {
         <div className=" md:flex flex-row-reverse justify-between md:gap-10 py-10 ">
           <div className="  mt-10 ">
           <div className=" flex md:justify-end justify-center">
-          <Link to={`/allProperties/${_id}`}> 
-              <button className=" bg-[#ffb900] font-semibold    hover:text-white p-3 mb-16 flex items-center gap-2 "><FaRegBookmark /> Add To Wishlist</button>
+          <Link> 
+              <button onClick={handleWishlist} className=" bg-[#ffb900] font-semibold    hover:text-white p-3 mb-16 flex items-center gap-2 "><FaRegBookmark /> Add To Wishlist</button>
               </Link>
           </div>
           <div className="card rounded-none  bg-base-100 shadow-xl">
@@ -106,7 +143,15 @@ const Propertydetails = () => {
 
           </div>
         </div>
-        <PropertyReview></PropertyReview>
+        <PropertyReview property={property} refetch={refetch}></PropertyReview>
+        <div className="divider"></div> 
+        <div>
+          <h2 className=" text-3xl font-bold"> All Reviews -</h2>
+           {
+            reviews?.map((review) =><Review key={review._id}  review={review}></Review>)
+           }
+        </div>
+        
       </Container>
     </div>
   );
