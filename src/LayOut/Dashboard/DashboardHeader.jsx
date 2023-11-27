@@ -3,10 +3,9 @@ const DashboardHeader = ({heading}) => {
      return (
           <div>
                {/* <!----------------- Header -----------------> */}
-  <header className="flex items-center justify-between p-4 sticky top-0 bg-white">
+  <header className="flex items-center justify-between p-4 shadow-lg sticky top-0 bg-white">
     <div className="flex items-center justify-between">
       <a
-        href="#sidenav-open"
         className="visible sm:hidden"
         title="Open Menu"
         aria-label="Open Menu"

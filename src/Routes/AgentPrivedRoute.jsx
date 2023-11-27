@@ -1,13 +1,14 @@
 import { Navigate, useLocation } from "react-router-dom";
-import useAdmin from "../Hooks/useAdmin";
+import useAgent from "../Hooks/useAgent";
 import useAuth from "../Hooks/useAuth";
 
-const Adminroute = ({children}) => {
+
+const AgentPrivedRoute = ({children}) => {
      const {user,loading} = useAuth();
-     const [isAdmin,isAdminLoading] = useAdmin();
+     const [isAgent,isAgentLoading] = useAgent();
      const location = useLocation();
      
-     if(loading || isAdminLoading) {
+     if(loading || isAgentLoading) {
           return  <>
 <div role="status">
     <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,10 +21,10 @@ const Adminroute = ({children}) => {
                </>
           
      }
-     if(user && isAdmin){
+     if(user && isAgent){
           return children
      }
      return <Navigate to={'/login'} state={{from:location}} replace></Navigate>
 };
 
-export default Adminroute;
+export default AgentPrivedRoute;

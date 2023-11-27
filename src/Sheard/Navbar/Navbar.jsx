@@ -79,7 +79,7 @@ const Navbar = () => {
   
 
   return (
-    <div className="navbar fixed z-10 bg-[#ffffff80] md:px-14 lg:px-20 px-5 dark:text-white dark:bg-[#242323]">
+    <div className="navbar fixed z-10 bg-[#ffffffc9] md:px-14 lg:px-20 px-5 dark:text-white dark:bg-[#242323]">
           <div className="navbar-start">
           <div className="dropdown ">
                <label tabIndex={0} className="btn btn-ghost lg:hidden ">
@@ -105,34 +105,30 @@ const Navbar = () => {
       user ?  <div className="dropdown">
       <label tabIndex={0} className=" cursor-pointer  ">
         {
-          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#3994e4] w-10 h-10 md:h-12 md:w-12" /> : <CiUser className=" cursor-pointer border-2  border-[#3994e4] text-black bg-slate-300 p-1 w-10 h-10 rounded-full"/>
+          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#ffb900] w-10 h-10 md:h-12 md:w-12" /> : <CiUser className=" cursor-pointer border-2  border-[#ffb900] text-black bg-slate-300 p-1 w-10 h-10 rounded-full"/>
         }
       
       </label>
-      <ul tabIndex={0} className="menu menu-sm  dropdown-content right-0 h-96 mt-5 w-80 z-[1] p-3 shadow border-4 border-[#3994e4] dark:bg-black  bg-slate-100  rounded-lg">
+      <ul tabIndex={0} className="menu menu-sm  dropdown-content right-0 h-84 mt-5 w-80 z-[1] p-3 shadow border-4 border-[#ffffff] dark:bg-black  bg-black  rounded-lg">
      
-     <div className=" flex gap-4">
-      <div>
-      {
-          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#3994e4] w-6 h-6 md:w-8  md:h-8 " /> : <CiUser className=" cursor-pointer text-black bg-slate-300 p-1 w-10 h-10 mx-auto rounded-full"/>
-        }
-      </div>
+     <div className=" flex gap-4 justify-center">
       <div className=" flex justify-center">
        <div>
-       <h2 className=" text-center dark:text-white text-lg font-semibold mt-2">{user.displayName}</h2>
-       <h2 className=" text-center dark:text-white ">{user.email}</h2>
+       <h2 className=" text-center text-white text-lg font-semibold mt-2">{user.displayName}</h2>
+       <h2 className=" text-center text-white ">{user.email}</h2>
        </div>
         
       </div>
      </div>
 
       <div className=" border-t-2 my-2">
-        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><CgProfile/> <span className="  hover:text-[#ffffff]">Profile</span></h2>
-        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><MdOutlineDashboardCustomize/> <Link to={'/dashboard'} className="  hover:text-[#ffffff]">Dashboard</Link></h2>
-        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><MdNotificationsActive/> <span className="  hover:text-[#ffffff]">Notifications</span></h2>
-        <h2 className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] p-2 rounded-lg hover:text-black items-center gap-2 my-3 cursor-pointer "><AiOutlineSetting/> <span className="  hover:text-[#ffffff]">User Settings</span></h2>
-        <div className=" w-full h-[1px] my-5 bg-[#3994e4]"></div>
-       <button onClick={handleLogOut} className=" flex bg-[#3994e4] text-white hover:bg-[#3994e4] w-full p-2 rounded-lg hover:text-black items-center  gap-2 my-2 cursor-pointer text-b lack"><AiOutlineLogout/> <span className="  hover:text-[#ffffff]">LogOut</span></button>
+        <Link to={'/dashboard/profile'}><h2 className=" flex bg-[#ffb900]  text-black hover:bg-[#ffb900] p-2 rounded-lg hover:text-white items-center gap-2 my-3 cursor-pointer "><CgProfile/> <span className="  hover:text-[#ffffff]">Profile</span></h2></Link>
+        <Link to={'/dashboard'}><h2 className=" flex bg-[#ffb900]  text-black hover:bg-[#ffb900] p-2 rounded-lg hover:text-white items-center gap-2 my-3 cursor-pointer "><MdOutlineDashboardCustomize/>Dashboard</h2></Link>
+        
+        <h2 className=" flex bg-[#ffb900]  text-black hover:bg-[#ffb900] p-2 rounded-lg hover:text-white items-center gap-2 my-3 cursor-pointer "><MdNotificationsActive/> <span className="  hover:text-[#ffffff]">Notifications</span></h2>
+        
+        <div className=" w-full h-[1px] my-5 bg-[#ffb900]"></div>
+       <button onClick={handleLogOut} className=" flex bg-[#ffb900]  text-black hover:bg-[#ffb900] w-full p-2 rounded-lg hover:text-white items-center  gap-2 my-2 cursor-pointer text-b lack"><AiOutlineLogout/> <span className="  hover:text-[#ffffff]">LogOut</span></button>
       </div>
       
       </ul>

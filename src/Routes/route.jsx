@@ -7,6 +7,13 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Dashboard from "../LayOut/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import ManageUsers from "../LayOut/Dashboard/DashboardRoute/AdminRoute/ManageUsers/ManageUsers";
+import UserProfile from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserProfile/UserProfile";
+import AgentProfile from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentProfile/AgentProfile";
+import AdminProfile from "../LayOut/Dashboard/DashboardRoute/AdminRoute/AdminProfile/AdminProfile";
+import Adminroute from "./AdminRoute";
+import AgentPrivedRoute from "./AgentPrivedRoute";
+
+
 
 export const router = createBrowserRouter([
   {
@@ -33,19 +40,27 @@ export const router = createBrowserRouter([
      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
      errorElement:<ErrorPage></ErrorPage>,
      children:[
+
           //admin routes
           {
                path:'manageUsers',
-               element:<PrivateRoute><ManageUsers></ManageUsers></PrivateRoute>
+               element:<PrivateRoute><Adminroute><ManageUsers></ManageUsers></Adminroute></PrivateRoute>
+          },
+          {
+               path:"adminProfile",
+               element:<PrivateRoute><Adminroute><AdminProfile></AdminProfile></Adminroute></PrivateRoute>
           },
           //Agent routes
           {
-
+               path:"agentProfile",
+               element:<PrivateRoute><AgentPrivedRoute><AgentProfile></AgentProfile></AgentPrivedRoute></PrivateRoute>
           },
           //User routes
           {
-
+               path:"userProfile",
+               element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>
           }
      ]
   }
+ 
 ]);

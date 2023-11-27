@@ -2,7 +2,7 @@ import { FaStar, FaUser } from "react-icons/fa";
 import {  FaUsers, FaVectorSquare } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
-const AdminRoute = () => {
+const AdminDashRoute = () => {
      return (
           <>
                <NavLink
@@ -57,4 +57,4 @@ const AdminRoute = () => {
      );
 };
 
-export default AdminRoute;
+export default AdminDashRoute;

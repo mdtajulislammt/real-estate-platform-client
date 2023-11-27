@@ -31,6 +31,15 @@ const LogIn = () => {
               });
             navigate(loc,{replace: true});
           })
+          .catch((err)=>{
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: `${err.message} `, 
+              showConfirmButton: false,
+              timer: 1500
+            });
+          })
   }
      return (
           <Container>

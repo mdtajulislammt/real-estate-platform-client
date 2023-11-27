@@ -2,10 +2,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaEnvelope, FaHome } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
-import AdminRoute from "./DashboardRoute/AdminRoute/AdminRoute";
 import AgentRoute from "./DashboardRoute/AgentRoute/AgentRoute";
 import useAdmin from "../../Hooks/useAdmin";
 import useAgent from "../../Hooks/useAgent";
+import UserRoute from "./DashboardRoute/UserRoute/UserRoute";
+import AdminDashRoute from "./DashboardRoute/AdminRoute/AdminDashRoute";
 
 
 const Dashboard = () => {
@@ -14,16 +15,16 @@ const Dashboard = () => {
   return (
     <div>
       <div className=" flex ">
-        <aside id="sidenav-open" className="bg-[#ffb900] lg:h-[100vh] h-full">
+        <aside id="sidenav-open" className="bg-[#ffb900]  lg:h-[100vh] h-full">
           <nav className="flex flex-col justify-between bg-[#ffb900] h-full p-5 border-r ">
             <div className="">
                {
                     isAdmin ?
-                    <AdminRoute></AdminRoute>
+                    <AdminDashRoute></AdminDashRoute>
                      : 
                      isAgent ? <AgentRoute></AgentRoute> 
                      : 
-                     <h2>normal user</h2>
+                     <UserRoute></UserRoute>
                }
                
                 {/* all user display route after login  */}
