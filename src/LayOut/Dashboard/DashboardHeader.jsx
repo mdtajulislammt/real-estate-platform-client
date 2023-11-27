@@ -1,7 +1,7 @@
 
 const DashboardHeader = ({heading}) => {
      return (
-          <div>
+          <div className=" ">
                {/* <!----------------- Header -----------------> */}
   <header className="flex items-center justify-between p-4 shadow-lg sticky top-0 bg-white">
     <div className="flex items-center justify-between">

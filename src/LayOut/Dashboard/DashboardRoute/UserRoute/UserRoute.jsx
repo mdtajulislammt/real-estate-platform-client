@@ -17,7 +17,7 @@ const UserRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <FaUser/>
-           <span className=""> My Profile</span>
+           <span className="hidden md:block"> My Profile</span>
          </NavLink>
           <NavLink
          to={'/dashboard/manageProperties'}
@@ -29,7 +29,7 @@ const UserRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <MdBookmarkAdded />
-           <span className="">  Wishlist</span>
+           <span className="hidden md:block">  Wishlist</span>
          </NavLink>
           <NavLink
          to={'/dashboard/manageUsers'}
@@ -41,7 +41,7 @@ const UserRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <FaCodePullRequest />
-           <span className=""> Property Bought</span>
+           <span className="hidden md:block"> Property Bought</span>
          </NavLink>
           <NavLink
          to={'/dashboard/manageReviews'}
@@ -53,7 +53,7 @@ const UserRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <FaStar />
-           <span className=""> My reviews</span>
+           <span className="hidden md:block"> My reviews</span>
          </NavLink>
      </>
      );

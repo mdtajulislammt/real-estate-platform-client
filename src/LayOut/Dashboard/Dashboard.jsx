@@ -14,10 +14,10 @@ const Dashboard = () => {
      const [isAgent] = useAgent();
   return (
     <div>
-      <div className=" flex ">
-        <aside id="sidenav-open" className="bg-[#ffb900]  lg:h-[100vh] h-full">
-          <nav className="flex flex-col justify-between bg-[#ffb900] h-full p-5 border-r ">
-            <div className="">
+      <div className=" md:flex ">
+        <aside id="sidenav-open" className="bg-[#ffb900]  md:h-[100vh] md:w-96 ">
+          <nav className="flex md:flex-col justify-between bg-[#ffb900] h-full p-5 border-r ">
+            <div className=" flex md:flex-col justify-between md:overflow-hidden overflow-y-scroll  w-full">
                {
                     isAdmin ?
                     <AdminDashRoute></AdminDashRoute>
@@ -28,7 +28,7 @@ const Dashboard = () => {
                }
                
                 {/* all user display route after login  */}
-            <div className="divider ">OR</div>
+            <div className="hidden lg:block w-full h-[1px] bg-black"></div>
               <NavLink
               to={'/'}
                 className={({ isActive, isPending }) =>
@@ -38,8 +38,8 @@ const Dashboard = () => {
                   ? " text-lg font-semibold flex items-center p-3 rounded gap-2 text-white  bg-[#000000]  mb-3  underline"
                   : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
               >
-                <FaHome></FaHome>
-                <span className="">Home</span>
+                <FaHome ></FaHome>
+                <span  className="hidden md:block">Home</span>
               </NavLink>
 
               <NavLink
@@ -52,7 +52,7 @@ const Dashboard = () => {
                   : "text-lg font-semibold flex items-center p-3  gap-2 text-black mb-3"}
               >
                 <FaEnvelope />
-                <span className="">Contact</span>
+                <span className="hidden md:block">Contact</span>
               </NavLink>
               <NavLink
               to={'/'}
@@ -64,12 +64,12 @@ const Dashboard = () => {
                   : "text-lg font-semibold flex items-center p-3  gap-2 text-black mb-3"}
               >
                 <IoSettings/>
-                <span className="">Setting</span>
+                <span className="hidden md:block ">Setting</span>
               </NavLink>
 
             </div>
 
-            <div className="flex justify-between">
+            <div className="lg:flex justify-between hidden">
               <a
                 href="#"
                 className="flex items-center p-2 rounded-xl hover:bg-gray-50 hover:text-blue-700"

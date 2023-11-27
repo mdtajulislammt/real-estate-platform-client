@@ -12,6 +12,8 @@ import AgentProfile from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentPro
 import AdminProfile from "../LayOut/Dashboard/DashboardRoute/AdminRoute/AdminProfile/AdminProfile";
 import Adminroute from "./AdminRoute";
 import AgentPrivedRoute from "./AgentPrivedRoute";
+import AllProperties from "../Pages/AllProperties/AllProperties";
+import Propertydetails from "../Pages/AllProperties/Propertydetails";
 
 
 
@@ -32,6 +34,15 @@ export const router = createBrowserRouter([
      {
           path: "/register",
           element:<Register></Register>
+     },
+     {
+          path: "/allProperties",
+          element:<PrivateRoute><AllProperties></AllProperties></PrivateRoute>
+     },
+     {
+          path: "/allProperties/:id",
+          element:<PrivateRoute><Propertydetails></Propertydetails></PrivateRoute>,
+          // loader:({params})=> fetch(`http://localhost:5000/allProperties/${params.id}`)
      },
     ]
   },
