@@ -17,6 +17,9 @@ import Propertydetails from "../Pages/AllProperties/Propertydetails";
 import UserWishlist from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserWishlist/UserWishlist";
 import UserWishOffer from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserWishlist/UserWishOffer";
 import UserMyReview from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserMyReview/UserMyReview";
+import UserBought from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserBought/UserBought";
+import Payment from "../LayOut/Dashboard/DashboardRoute/UserRoute/Payment/Payment";
+import AgentAddProperties from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentAddProperties/AgentAddProperties";
 
 
 
@@ -69,6 +72,10 @@ export const router = createBrowserRouter([
                path:"agentProfile",
                element:<PrivateRoute><AgentPrivedRoute><AgentProfile></AgentProfile></AgentPrivedRoute></PrivateRoute>
           },
+          {
+               path:"myAddedProperties",
+               element:<PrivateRoute><AgentPrivedRoute><AgentAddProperties></AgentAddProperties></AgentPrivedRoute></PrivateRoute>
+          },
           //User routes
           {
                path:"userProfile",
@@ -85,6 +92,14 @@ export const router = createBrowserRouter([
           {
                path:"userMyReviews",
                element:<PrivateRoute><UserMyReview></UserMyReview></PrivateRoute>
+          },
+          {
+               path:"userBought",
+               element:<PrivateRoute><UserBought></UserBought></PrivateRoute>
+          },
+          {
+               path:"userBought/payment/:id",
+               element:<PrivateRoute><Payment></Payment></PrivateRoute>
           }
      ]
   }

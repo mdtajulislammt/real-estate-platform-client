@@ -8,7 +8,7 @@ const UserWishlist = () => {
      const wish = wishlist?.filter( item => item.email === user.email);
 
      return (
-          <div className=" grid grid-cols-2 gap-10 p-8">
+          <div className=" grid grid-cols-1 lg:grid-cols-2 gap-10 p-8">
               {
                     wish?.map(property=><UserWish key={property._id} property={property}></UserWish>)
               } 

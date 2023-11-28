@@ -4,7 +4,6 @@ import useUserData from "../../Hooks/useUserData";
 
 const DashboardProfile = () => {
      const { user } = useAuth();
-     console.log(user);
      const [users] = useUserData();
      const role = users.find((item) => item.email === user.email);
      return (

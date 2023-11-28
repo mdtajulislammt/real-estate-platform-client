@@ -1,89 +1,19 @@
-import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
-import Swal from "sweetalert2";
-import useAuth from "../../../../../Hooks/useAuth";
-import useAllWishlistData from "../../../../../Hooks/useAllWishlistData";
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
+import DashboardHeader from "../../../DashboardHeader";
 
-const UserWishOffer = () => {
-     const { register, handleSubmit,reset } = useForm();
-     const { id } = useParams();
-     const {user} = useAuth();
-     const [wishlist] = useAllWishlistData();
-     const axiosSecure = useAxiosSecure();
-     const property = wishlist?.find((item) => item._id === id);
-   
-     const [startDate, setStartDate] = useState(new Date());
-     const {
-       title,
-       location,
-       agentName,
-       maxPrice,
-       minPrice,
-       img,
-       status
-     } = property || {};
-     console.log(status);
 
-     const onSubmit = async (data) => {
 
-          
-           
-          const  offerInfo = {
-               title: title,
-               location: location,
-               buyerEmail: user.email,
-               buyerName: user.displayName,
-               minPrice: minPrice,
-               maxPrice: maxPrice ,
-               offerAmount: data.offerAmount,
-               buying:startDate,
-               agentName: agentName,
-               img:img,
-               status:status
-          }
-          console.log(typeof(parseFloat(minPrice)));
-           if(  parseFloat(minPrice) <= parseFloat(data.offerAmount)  ){
-               axiosSecure.post('/userWishOffer',offerInfo)
-               .then(res=>{
-                    reset();
-                    Swal.fire({
-                         position: "top-end",
-                         icon: "success",
-                         title: `Send Offer successfully `,
-                         showConfirmButton: false,
-                         timer: 1500
-                       });  
-               })
-               .catch((err)=>{
-                    Swal.fire({
-                         position: "top-end",
-                         icon: "error",
-                         title: `offer Not send `,
-                         showConfirmButton: false,
-                         timer: 1500
-                       }); 
-               })
-
-               
-                  return ;
-          }else{
-             Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: `${data.offerAmount} money is out of range `,
-                    showConfirmButton: false,
-                    timer: 1500
-                  });  
-          }
-     }
+const AgentAddProperties = () => {
      return (
           <div>
-               <div className=" bg-slate-200 rounded p-5 mx-10 my-7">
-        <form onSubmit={handleSubmit(onSubmit)}>
+               <DashboardHeader heading={'My Added Properties'}></DashboardHeader>
+               <div>
+                    <Link><button>Add Property</button></Link>
+               </div>
+               <div className=" mx-8 lg:mx-20 my-5 border p-4 rounded-xl bg-slate-200">
+               <form
+               // onSubmit={handleSubmit(onSubmit)}
+               >
           {/* tilte */}
           <div className="form-control w-full my-2">
           
@@ -96,7 +26,7 @@ const UserWishOffer = () => {
               
               type="text"
               placeholder=""
-              defaultValue={title}
+              defaultValue={'title'}
               className="input input-bordered w-full "
               readOnly
             />
@@ -112,7 +42,7 @@ const UserWishOffer = () => {
               
               type="text"
               placeholder=""
-              defaultValue={location}
+              defaultValue={'location'}
               className="input input-bordered w-full "
               readOnly
             />
@@ -129,7 +59,7 @@ const UserWishOffer = () => {
               
               type="text"
               placeholder=""
-              defaultValue={user.displayName}
+              defaultValue={'user.displayName'}
               className="input input-bordered w-full "
               readOnly
             />
@@ -145,7 +75,7 @@ const UserWishOffer = () => {
               
               type="text"
               placeholder=""
-              defaultValue={user.email}
+              defaultValue={'user.email'}
               className="input input-bordered w-full "
               readOnly
             />
@@ -163,7 +93,7 @@ const UserWishOffer = () => {
               
               type="text"
               placeholder=""
-              defaultValue={agentName}
+              defaultValue={'agentName'}
               className="input input-bordered w-full "
               readOnly
             />
@@ -175,7 +105,7 @@ const UserWishOffer = () => {
                 Buying Date
               </span>
             </label>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}  className="input input-bordered w-full "/>
+            {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}  className="input input-bordered w-full "/> */}
           </div>
           </div>
           <div className=" flex items-center gap-5 mb-4">
@@ -187,7 +117,7 @@ const UserWishOffer = () => {
               </span>
             </label>
             <input
-              {...register("offerAmount",{required:true})}
+          //     {...register("offerAmount",{required:true})}
               type="number"
               placeholder="$ Amount"
               className="input input-bordered w-full "
@@ -206,7 +136,7 @@ const UserWishOffer = () => {
               
               type="text"
               placeholder=""
-              defaultValue={minPrice}
+              defaultValue={'minPrice'}
               className="input input-bordered w-full "
               readOnly
             />
@@ -221,7 +151,7 @@ const UserWishOffer = () => {
              
               type="text"
               placeholder=""
-              defaultValue={maxPrice}
+              defaultValue={'maxPrice'}
               className="input input-bordered w-full "
               readOnly
             />
@@ -230,9 +160,9 @@ const UserWishOffer = () => {
           </div>
           <input type="submit" value="Offer" className=" bg-green-500 p-2 px-8 font-semibold text-white rounded border-2 border-green-500 hover:text-black cursor-pointer hover:bg-transparent" />
         </form>
-      </div>
+               </div>
           </div>
      );
 };
 
-export default UserWishOffer;
+export default AgentAddProperties;

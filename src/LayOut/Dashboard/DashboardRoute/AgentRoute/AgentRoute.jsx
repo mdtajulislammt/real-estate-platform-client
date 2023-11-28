@@ -20,7 +20,7 @@ const AgentRoute = () => {
            <span className=""> Agent Profile</span>
          </NavLink>
           <NavLink
-         to={'/dashboard/manageProperties'}
+         to={'/dashboard/myAddedProperties'}
            className={({ isActive, isPending }) =>
            isPending
              ? "pending"

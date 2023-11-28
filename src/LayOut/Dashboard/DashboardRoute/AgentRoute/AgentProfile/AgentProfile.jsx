@@ -3,6 +3,7 @@ import DashboardProfile from "../../../../../Components/DashboardProfile/Dashboa
 const AgentProfile = () => {
      return (
           <div>
+               
               <DashboardProfile></DashboardProfile> 
           </div>
      );

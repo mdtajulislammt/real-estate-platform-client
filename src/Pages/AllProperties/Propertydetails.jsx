@@ -28,8 +28,10 @@ const Propertydetails = () => {
     agentName,
     description,
     agentImg,
-    priceRange,
-    verificationStatus
+    maxPrice,
+    minPrice,
+    verificationStatus,
+    status
   } = property || {};
 
   const handleWishlist = () =>{
@@ -41,8 +43,10 @@ const Propertydetails = () => {
     agentName,
     description,
     agentImg,
-    priceRange,
-    verificationStatus
+    maxPrice,
+    minPrice,
+    verificationStatus,
+    status
 
     }
    axiosSecure.post('/wishlist',propertyInfo)
@@ -129,7 +133,7 @@ const Propertydetails = () => {
             <h2 className=" text-4xl font-bold">{title}</h2>
             <p className=" text-xl flex items-center gap-2 text-gray-500 mt-2 "><FaLocationDot /> {location}</p>
             <p className=" flex items-center gap-2 text-lg font-semibold text-gray-500"><MdVerifiedUser className=" text-blue-500"/>{verificationStatus}</p>
-            <h2 className=" text-3xl font-bold mt-2">${priceRange}k</h2>
+            <h2 className=" text-3xl font-bold mt-2">${minPrice} - ${maxPrice}</h2>
             <div className="flex justify-between text-center bg-[#ffb900] text-black py-2 border mt-8 border-gray-400 rounded-md  w-full">
               <p className="  px-2">
                 <FaBed className=" mx-auto" /> 3 bedroom

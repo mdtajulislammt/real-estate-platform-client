@@ -8,7 +8,7 @@ import useAllWishlistData from "../../../../../Hooks/useAllWishlistData";
 const UserWish = ({property}) => {
      const axiosSecure = useAxiosSecure()
      const [ ,refetch] = useAllWishlistData()
-     const {_id,img,title,location,agentName,agentImg,verificationStatus,priceRange,} = property || {}
+     const {_id,img,title,location,agentName,agentImg,verificationStatus, minPrice,maxPrice} = property || {}
 
      const handleDelete =(id)=>{
           Swal.fire({
@@ -49,7 +49,7 @@ const UserWish = ({property}) => {
             <h2 className=" text-xl font-semibold">{title}</h2>
             <p className=" flex items-center gap-2 text-sm text-gray-500"><FaLocationDot />{location}</p>
             <div className=" flex justify-between items-center">
-            <p className=" text-2xl font-bold text-[#ffb900] ">${priceRange}k</p>
+            <p className=" text-2xl font-bold text-[#ffb900] ">${minPrice} - ${maxPrice}</p>
             <p className=" flex items-center gap-2 text-lg font-semibold text-gray-500"><MdVerifiedUser className=" text-blue-500"/>{verificationStatus}</p>
             </div>
             <div className=" flex  gap-2 items-center">
@@ -63,10 +63,10 @@ const UserWish = ({property}) => {
           </div>
               <div className=" flex justify-between gap-4">
               <Link to={`/dashboard/wishlist/${_id}`}> 
-              <button className=" bg-green-500 hover:bg-transparent hover:text-green-500 border-2 border-green-500   font-semibold  text-white p-1 w-full px-14 flex items-center gap-2"><MdLocalOffer /> Offer</button>
+              <button className=" bg-green-500 hover:bg-transparent hover:text-green-500 border-2 border-green-500   font-semibold  text-white p-1 w-full md:px-14 px-8 flex items-center gap-2"><MdLocalOffer /> Offer</button>
               </Link>
               <Link onClick={()=>handleDelete(_id)}> 
-              <button className=" bg-red-500 hover:bg-transparent hover:text-red-500 border-2 border-red-500 font-semibold  text-white p-1 w-full px-14 flex items-center gap-2"><MdDelete /> Delete</button>
+              <button className=" bg-red-500 hover:bg-transparent hover:text-red-500 border-2 border-red-500 font-semibold  text-white p-1 w-full md:px-14 px-8 flex items-center gap-2"><MdDelete /> Delete</button>
               </Link>
               </div>
 

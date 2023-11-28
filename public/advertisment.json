@@ -8,9 +8,11 @@
     "agentName": "Olivia Robinson",
     "agentImg": " https://i.ibb.co/W2hPY5b/agent1.jpg",
     "verificationStatus": "Verified",
-    "priceRange": "800 - 900",
     "description": "Step into the lap of luxury with this elegant countryside manor nestled in the heart of a sprawling country estate. Featuring exquisite architecture, lush gardens, and sophisticated interiors, this property offers a refined and serene lifestyle. Enjoy the tranquility of the countryside without compromising on modern comforts and style.",
-    "img": "https://i.ibb.co/4WNXRjp/property1.jpg"
+    "img": "https://i.ibb.co/4WNXRjp/property1.jpg",
+    "maxPrice": "90000",
+    "minPrice": "60000",
+    "status": "pending"
   },
   {
     "title": "Seaside Vacation Retreat",
@@ -18,9 +20,11 @@
     "agentName": "Daniel Harris",
     "agentImg": "https://i.ibb.co/Q6VztPS/agent2.jpg",
     "verificationStatus": "Verified",
-    "priceRange": "600 - 650",
     "description": "Indulge in the ultimate seaside living experience with this luxurious vacation retreat. Nestled along the coastline of Coastal Haven, this property offers breathtaking ocean views, private beach access, and upscale amenities. Immerse yourself in the tranquility of coastal living while enjoying the comforts of a well-appointed home.",
-    "img": "https://i.ibb.co/L6rqJ3W/property2.jpg"
+    "img": "https://i.ibb.co/L6rqJ3W/property2.jpg",
+    "maxPrice": "60000",
+    "minPrice": "40000",
+    "status": "pending"
   },
   {
     "title": "Charming Mountain Cabin",
@@ -28,9 +32,11 @@
     "agentName": "Sophie Williams",
     "agentImg": "https://i.ibb.co/1ZrVvqK/agent3.jpg",
     "verificationStatus": "Not Verified",
-    "priceRange": "250 - 300",
     "description": "Escape to the serene beauty of this charming mountain cabin situated in a peaceful mountain town. Surrounded by nature, this cozy retreat features rustic interiors, a fireplace, and breathtaking views. Perfect for those seeking a tranquil and idyllic escape from the hustle and bustle of city life.",
-    "img": "https://i.ibb.co/PGdrL25/property3.jpg"
+    "img": "https://i.ibb.co/PGdrL25/property3.jpg",
+    "maxPrice": "100000",
+    "minPrice": "80000",
+    "status": "pending"
   },
   {
     "title": "Spacious Urban Loft",
@@ -38,9 +44,11 @@
     "agentName": "Alex Turner",
     "agentImg": "https://i.ibb.co/TMkwM3J/agent4.jpg",
     "verificationStatus": "Verified",
-    "priceRange": "400 - 450",
     "description": "This modern and spacious urban loft is located in the heart of Metropolis, offering a vibrant city lifestyle. With high ceilings, large windows, and contemporary design, this property provides an open and airy atmosphere. The nearby amenities and stylish interiors make it an ideal choice for urban living enthusiasts.",
-    "img": "https://i.ibb.co/Vp6G8k2/property4.jpg"
+    "img": "https://i.ibb.co/Vp6G8k2/property4.jpg",
+    "maxPrice": "30000",
+    "minPrice": "10000",
+    "status": "pending"
   }
   
 ]

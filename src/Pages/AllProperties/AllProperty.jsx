@@ -4,7 +4,7 @@ import { MdVerifiedUser } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const AllProperty = ({property}) => {
-     const {_id,img,title,location,agentName,agentImg,verificationStatus,priceRange,} = property || {}
+     const {_id,img,title,location,agentName,agentImg,verificationStatus,maxPrice,minPrice} = property || {}
      return (
           <div  className=" card rounded-none px-5 py-5 bg-white shadow shadow-black">
           <figure className="pb-2 ">
@@ -18,7 +18,7 @@ const AllProperty = ({property}) => {
             <h2 className=" text-xl font-semibold">{title}</h2>
             <p className=" flex items-center gap-2 text-sm text-gray-500"><FaLocationDot />{location}</p>
             <div className=" flex justify-between items-center">
-            <p className=" text-2xl font-bold text-[#ffb900] ">${priceRange}k</p>
+            <p className=" text-2xl font-bold text-[#ffb900] ">$ {minPrice} - $ {maxPrice}</p>
             <p className=" flex items-center gap-2 text-lg font-semibold text-gray-500"><MdVerifiedUser className=" text-blue-500"/>{verificationStatus}</p>
             </div>
             <div className=" flex  gap-2 items-center">
