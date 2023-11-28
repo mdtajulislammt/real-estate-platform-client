@@ -8,13 +8,16 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import Review from "../Home/ReviewLatest/Review";
 import useAllReviewData from "../../Hooks/useAllReviewData";
+import { MdVerifiedUser } from "react-icons/md";
+import useAllWishlistData from "../../Hooks/useAllWishlistData";
 
 const Propertydetails = () => {
   const {user} = useAuth();
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
-  const [allProperties, ,refetch] = useAllPropertiesData();
+  const [allProperties] = useAllPropertiesData();
   const [allReviews] = useAllReviewData();
+  const [ ,refetch] = useAllWishlistData()
   const property = allProperties?.find((property) => property._id === id);
   const reviews = allReviews?.filter(review => review.propertyId === id) 
  
@@ -26,6 +29,7 @@ const Propertydetails = () => {
     description,
     agentImg,
     priceRange,
+    verificationStatus
   } = property || {};
 
   const handleWishlist = () =>{
@@ -38,6 +42,7 @@ const Propertydetails = () => {
     description,
     agentImg,
     priceRange,
+    verificationStatus
 
     }
    axiosSecure.post('/wishlist',propertyInfo)
@@ -58,8 +63,8 @@ const Propertydetails = () => {
   }
   return (
     <div className="">
-      <Container>
         <img src={img} alt="" className=" w-full h-[80vh] object-cover" />
+      <Container>
         <div className=" md:flex flex-row-reverse justify-between md:gap-10 py-10 ">
           <div className="  mt-10 ">
           <div className=" flex md:justify-end justify-center">
@@ -123,6 +128,7 @@ const Propertydetails = () => {
           <div className=" mt-5 ">
             <h2 className=" text-4xl font-bold">{title}</h2>
             <p className=" text-xl flex items-center gap-2 text-gray-500 mt-2 "><FaLocationDot /> {location}</p>
+            <p className=" flex items-center gap-2 text-lg font-semibold text-gray-500"><MdVerifiedUser className=" text-blue-500"/>{verificationStatus}</p>
             <h2 className=" text-3xl font-bold mt-2">${priceRange}k</h2>
             <div className="flex justify-between text-center bg-[#ffb900] text-black py-2 border mt-8 border-gray-400 rounded-md  w-full">
               <p className="  px-2">

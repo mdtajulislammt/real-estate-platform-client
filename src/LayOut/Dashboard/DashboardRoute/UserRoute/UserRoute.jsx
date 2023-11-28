@@ -20,7 +20,7 @@ const UserRoute = () => {
            <span className="hidden md:block"> My Profile</span>
          </NavLink>
           <NavLink
-         to={'/dashboard/manageProperties'}
+         to={'/dashboard/wishlist'}
            className={({ isActive, isPending }) =>
            isPending
              ? "pending"
@@ -29,10 +29,10 @@ const UserRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <MdBookmarkAdded />
-           <span className="hidden md:block">  Wishlist</span>
+           <span className="hidden md:block"> Wishlist</span>
          </NavLink>
           <NavLink
-         to={'/dashboard/manageUsers'}
+         to={'/dashboard/userBought'}
            className={({ isActive, isPending }) =>
            isPending
              ? "pending"
@@ -44,7 +44,7 @@ const UserRoute = () => {
            <span className="hidden md:block"> Property Bought</span>
          </NavLink>
           <NavLink
-         to={'/dashboard/manageReviews'}
+         to={'/dashboard/userMyReviews'}
            className={({ isActive, isPending }) =>
            isPending
              ? "pending"

@@ -18,7 +18,7 @@ const AllProperty = ({property}) => {
             <h2 className=" text-xl font-semibold">{title}</h2>
             <p className=" flex items-center gap-2 text-sm text-gray-500"><FaLocationDot />{location}</p>
             <div className=" flex justify-between items-center">
-            <p className=" text-2xl font-bold text-[#ffb900] ">${priceRange}</p>
+            <p className=" text-2xl font-bold text-[#ffb900] ">${priceRange}k</p>
             <p className=" flex items-center gap-2 text-lg font-semibold text-gray-500"><MdVerifiedUser className=" text-blue-500"/>{verificationStatus}</p>
             </div>
             <div className=" flex  gap-2 items-center">
@@ -30,6 +30,7 @@ const AllProperty = ({property}) => {
             <p className=" px-2 border-x border-gray-400"><FaBath className=" mx-auto"/> 3 bathroom</p>
             <p className=" px-2 "><FaVectorSquare className=" mx-auto"/>820 sqft</p>
           </div>
+          
               <Link to={`/allProperties/${_id}`}> 
               <button className="bg-gradient-to-r  from-[#ffb900] to-black hover:from-[#000000] mt-4 hover:to-[#ffb900] font-semibold  text-white p-1 w-full">View Details</button>
               </Link>

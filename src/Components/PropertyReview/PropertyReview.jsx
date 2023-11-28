@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 
 
-const PropertyReview = ({property,refetch}) => {
+const PropertyReview = ({property}) => {
      const { id } = useParams();
      const {user} = useAuth()
      const [rating, setRating] = useState(0);
@@ -20,7 +20,8 @@ const PropertyReview = ({property,refetch}) => {
         } = property || {};
 
         const showDate = new Date();
-        const displayDate = showDate.getDate()+"/"+(showDate.getMonth()+1)+"/"+showDate.getFullYear();
+        const displayDate = showDate.getDate()+"/"+(showDate.getMonth()+1)+"/"+showDate.getFullYear()+" "+showDate.getHours()+":"+showDate.getMinutes();
+
         
 
      const handleReviewSubmit =(e)=>{
@@ -36,7 +37,8 @@ const PropertyReview = ({property,refetch}) => {
                displayDate,
                propertyId:id,
                userName:user.displayName,
-               userImg:user.photoURL
+               userImg:user.photoURL,
+               email:user.email
           }
           console.log(reviewInfo);
           axiosSecure.post('/allReviews',reviewInfo)
@@ -49,7 +51,7 @@ const PropertyReview = ({property,refetch}) => {
                          showConfirmButton: false,
                          timer: 1500
                        }); 
-                       refetch();
+                       
                }
           })
 

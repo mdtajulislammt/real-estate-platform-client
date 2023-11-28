@@ -14,6 +14,9 @@ import Adminroute from "./AdminRoute";
 import AgentPrivedRoute from "./AgentPrivedRoute";
 import AllProperties from "../Pages/AllProperties/AllProperties";
 import Propertydetails from "../Pages/AllProperties/Propertydetails";
+import UserWishlist from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserWishlist/UserWishlist";
+import UserWishOffer from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserWishlist/UserWishOffer";
+import UserMyReview from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserMyReview/UserMyReview";
 
 
 
@@ -70,6 +73,18 @@ export const router = createBrowserRouter([
           {
                path:"userProfile",
                element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>
+          },
+          {
+               path:"wishlist",
+               element:<PrivateRoute><UserWishlist></UserWishlist></PrivateRoute>
+          },
+          {
+               path:"wishlist/:id",
+               element:<PrivateRoute><UserWishOffer></UserWishOffer></PrivateRoute>
+          },
+          {
+               path:"userMyReviews",
+               element:<PrivateRoute><UserMyReview></UserMyReview></PrivateRoute>
           }
      ]
   }

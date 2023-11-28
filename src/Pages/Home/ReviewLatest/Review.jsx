@@ -5,7 +5,6 @@ const Review = ({review}) => {
      const {
           title,
           agentName,
-          agentImg,
           description,
           rating,
           displayDate,
