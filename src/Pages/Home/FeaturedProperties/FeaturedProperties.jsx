@@ -23,7 +23,7 @@ const FeaturedProperties = () => {
     
         
         
-      ))}
+      )).slice(0,4)}
     </div>
    
     </Container>

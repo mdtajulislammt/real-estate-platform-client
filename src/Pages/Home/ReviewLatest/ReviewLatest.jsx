@@ -38,7 +38,8 @@ const ReviewLatest = () => {
            <FaQuoteLeft size={50} className=" text-[#ffb900] opacity-60"/>
 
       </div>
-      <p className=" py-5 text-lg font-semibold text-gray-500">{review.description}</p>
+      <p className=" py-5 text-lg font-semibold text-gray-500">
+        {review.description.slice(0,80)}</p>
       <Rating style={{ maxWidth: 120 , color: 'blue' }} value={review.rating}   readOnly className="py-2" />
       <hr />
       <div className="pt-5 flex items-center gap-3">

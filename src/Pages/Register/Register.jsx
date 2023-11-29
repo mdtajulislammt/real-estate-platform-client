@@ -51,8 +51,8 @@ const Register = () => {
         }
      return (
           <Container>
-               <section className="h-screen">
-  <div className="container h-full px-6 py-10 ">
+               <section className="">
+  <div className="container h-full px-6 pt-24 pb-24  ">
     <div
       className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
       {/* <!-- Left column container with background--> */}
@@ -104,12 +104,16 @@ const Register = () => {
           {/* <!-- Password input --> */}
           <div className="relative mb-6" data-te-input-wrapper-init>
             <input
-            {...register("password",{ required: true })} 
+            {...register("password",{ required: true,minLength:6,maxLength: 20, pattern:/[!@#$%^&*(),.?":{}|<>A-Z]/})} 
               type="password"
               className="peer text-black block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity"
               id="exampleFormControlInput33"
               placeholder="Password" />
               {errors.password && <span className=" text-red-600 my-2 text-sm">Password is required</span>}
+              {errors.password?.type=== 'minLength' && <span className=" text-red-600 my-2 text-sm">Password must be 6 Characters</span>}
+              {errors.password?.type=== 'maxLength' && <span className=" text-red-600 my-2 text-sm">Password must be less then 20 Characters</span>}
+              {errors.password?.type=== 'pattern' && <span className=" text-red-600 my-2 text-sm">Password must contain at least one uppercase letter</span>}
+              {errors.password?.type=== 'pattern' && <span className=" text-red-600 my-2 text-sm">Password must contain at least one special character</span>}
             
           </div>
 
@@ -152,7 +156,7 @@ const Register = () => {
 
         </form>
           <SocialLogin></SocialLogin>
-        <p className="mt-3 text-xl  text-[#000000] pl-2 rounded font-semibold"><small>New Here? <Link to={'/login'} className=" text-blue-600 hover:underline">Create an account</Link> </small></p>
+        <p className="mt-3 text-xl  text-[#000000] pl-2 rounded font-semibold"><small>New Here? <Link to={'/login'} className=" text-blue-600 hover:underline">Sign In</Link> </small></p>
       </div>
     </div>
   </div>

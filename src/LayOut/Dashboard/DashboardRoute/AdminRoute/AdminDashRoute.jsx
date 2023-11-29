@@ -15,7 +15,7 @@ const AdminDashRoute = () => {
                   : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
               >
                 <FaUser/>
-                <span className=""> Admin Profile</span>
+                <span className="hidden md:block"> Admin Profile</span>
               </NavLink>
                <NavLink
               to={'/dashboard/manageProperties'}
@@ -27,7 +27,7 @@ const AdminDashRoute = () => {
                   : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
               >
                 <FaVectorSquare/>
-                <span className=""> Manage Properties</span>
+                <span className="hidden md:block"> Manage Properties</span>
               </NavLink>
                <NavLink
               to={'/dashboard/manageUsers'}
@@ -39,7 +39,7 @@ const AdminDashRoute = () => {
                   : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
               >
                 <FaUsers/>
-                <span className=""> Manage Users</span>
+                <span className="hidden md:block"> Manage Users</span>
               </NavLink>
                <NavLink
               to={'/dashboard/manageReviews'}
@@ -51,7 +51,7 @@ const AdminDashRoute = () => {
                   : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
               >
                 <FaStar />
-                <span className=""> Manage reviews</span>
+                <span className="hidden md:block"> Manage reviews</span>
               </NavLink>
           </>
      );

@@ -17,7 +17,7 @@ const AgentRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <FaUser/>
-           <span className=""> Agent Profile</span>
+           <span className="hidden md:block"> Agent Profile</span>
          </NavLink>
           <NavLink
          to={'/dashboard/myAddedProperties'}
@@ -29,7 +29,7 @@ const AgentRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <MdBookmarkAdded />
-           <span className=""> My Added Properties</span>
+           <span className="hidden md:block"> My Added Properties</span>
          </NavLink>
           <NavLink
          to={'/dashboard/manageUsers'}
@@ -41,7 +41,7 @@ const AgentRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <FaCodePullRequest />
-           <span className=""> Requested Properties</span>
+           <span className="hidden md:block"> Requested Properties</span>
          </NavLink>
           <NavLink
          to={'/dashboard/manageReviews'}
@@ -53,7 +53,7 @@ const AgentRoute = () => {
              : "text-lg font-semibold flex items-center  p-3 gap-2 text-black mb-3"}
          >
            <FaStar />
-           <span className=""> Manage reviews</span>
+           <span className="hidden md:block"> Manage reviews</span>
          </NavLink>
      </>
      );

@@ -20,6 +20,7 @@ import UserMyReview from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserMyRev
 import UserBought from "../LayOut/Dashboard/DashboardRoute/UserRoute/UserBought/UserBought";
 import Payment from "../LayOut/Dashboard/DashboardRoute/UserRoute/Payment/Payment";
 import AgentAddProperties from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentAddProperties/AgentAddProperties";
+import AddProperty from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentAddProperties/AddProperty";
 
 
 
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
           {
                path:"myAddedProperties",
                element:<PrivateRoute><AgentPrivedRoute><AgentAddProperties></AgentAddProperties></AgentPrivedRoute></PrivateRoute>
+          },
+          {
+               path:"myAddedProperties/addProperty",
+               element:<PrivateRoute><AgentPrivedRoute><AddProperty></AddProperty></AgentPrivedRoute></PrivateRoute>
           },
           //User routes
           {
