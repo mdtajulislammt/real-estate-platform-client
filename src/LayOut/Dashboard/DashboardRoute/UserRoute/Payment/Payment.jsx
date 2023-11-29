@@ -12,8 +12,8 @@ const Payment = () => {
 
      const {id} =useParams();
      const propertyDetails = userWishOffer?.find( item => item._id === id);
-     const {offerAmount} = propertyDetails || {}
-     console.log(offerAmount);
+     const {offerAmount , title, location ,agentEmail} = propertyDetails || {}
+ console.log(propertyDetails);
 
     
 
@@ -23,9 +23,16 @@ const Payment = () => {
           <div>
               <DashboardHeader heading={'Payment'}></DashboardHeader> 
               <div>
-                    <div className=" border md:p-10 md:m-10 rounded-xl h-52 shadow-lg bg-[#ffffff]">
+                    <div className=" border md:p-10 md:m-10 rounded-xl  shadow-lg bg-[#ffffff]">
                          <Elements stripe={stripePromise}>  
-                         <CheckOutForm offerAmount={offerAmount}></CheckOutForm>
+                         <CheckOutForm
+                         propertyDetails={propertyDetails}
+                          offerAmount={offerAmount}
+                           title={title}
+                           location={location}
+                           agentEmail={agentEmail}
+                           id={id}
+                           ></CheckOutForm>
                          </Elements>
                     </div>
               </div>

@@ -86,6 +86,10 @@ export const router = createBrowserRouter([
                path:"myAddedProperties/:id",
                element:<PrivateRoute><AgentPrivedRoute><AddPropertyupdate></AddPropertyupdate></AgentPrivedRoute></PrivateRoute>
           },
+          {
+               path:"agentSoldProperty",
+               element:<PrivateRoute><AgentPrivedRoute><AddPropertyupdate></AddPropertyupdate></AgentPrivedRoute></PrivateRoute>
+          },
           //User routes
           {
                path:"userProfile",

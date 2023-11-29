@@ -21,12 +21,13 @@ const UserWishOffer = () => {
        title,
        location,
        agentName,
+       agentEmail,
        maxPrice,
        minPrice,
        img,
        status
      } = property || {};
-     console.log(status);
+     console.log(agentEmail);
 
      const onSubmit = async (data) => {
 
@@ -42,6 +43,7 @@ const UserWishOffer = () => {
                offerAmount: data.offerAmount,
                buying:startDate,
                agentName: agentName,
+               agentEmail: agentEmail,
                img:img,
                status:status
           }

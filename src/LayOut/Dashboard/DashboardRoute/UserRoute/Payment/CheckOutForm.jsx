@@ -3,23 +3,28 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../../Hooks/useAuth";
 
-const CheckOutForm = ({offerAmount}) => {
+const CheckOutForm = ({offerAmount , title, location,agentEmail,id}) => {
+     
+     
      const [error,setError] = useState();
-     const [clientSecret,setClientSecret] = useState()
+     const [clientSecret,setClientSecret] = useState();
+     const [transactionId, setTransactionId] = useState();
      const {user} = useAuth()
      const stripe = useStripe();
      const elements = useElements();
      const axiosSecure = useAxiosSecure();
-     console.log(offerAmount);
+     const amount = parseFloat(offerAmount)
+     console.log(typeof(amount));
+     console.log(agentEmail);
 
 
      useEffect(()=>{
-          axiosSecure.post('/create-payment-intent',{price:offerAmount})
+          axiosSecure.post('/create-payment-intent',{price:amount})
           .then(res=>{
                console.log(res.data.clientSecret)
                setClientSecret(res.data.clientSecret)
           })
-     },[axiosSecure,offerAmount ])
+     },[axiosSecure,amount ])
 
      const handleSubmit =  async (event) =>{
           event.preventDefault();
@@ -62,13 +67,34 @@ const CheckOutForm = ({offerAmount}) => {
                console.log('confirm error');
            }else{
                console.log('payment intent' , paymentIntent);
+               if(paymentIntent.status === 'succeeded'){
+                    console.log('transaction id',paymentIntent.id);
+                    setTransactionId(paymentIntent.id)
+
+                    //save the payment  in the database
+                    const payment = {
+                         buyerEmail : user.email,
+                         buyerName: user.displayName,
+                         price : amount,
+                         title: title,
+                         location: location,
+                         date: new Date(),
+                         cartId : id,
+                         agentEmail : agentEmail
+                    }
+
+                   const res = await axiosSecure.post('/payments',payment)
+
+               }
            }
 
           
      }
      return (
-          <form onSubmit={handleSubmit}> 
+          <form onSubmit={handleSubmit}>
+               <p className="px-4 p-2 text-2xl font  rounded-lg mb-5 bg-black text-[#ffb900] flex justify-between "><span>Pay Amount -</span> ${offerAmount}</p> 
                <CardElement
+               className=" border-2 p-4 rounded-lg border-[#ffb900] "
         options={{
           style: {
             base: {
@@ -90,6 +116,10 @@ const CheckOutForm = ({offerAmount}) => {
       </button>
       </div>
       <p className=" text-red-500">{error}</p>
+      {
+          transactionId && <p className=" text-green-500">
+               Your Transaction id :- {transactionId} </p>
+      }
           </form>
      );
 };

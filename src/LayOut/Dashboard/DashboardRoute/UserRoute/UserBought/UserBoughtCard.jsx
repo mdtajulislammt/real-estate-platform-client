@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const UserBoughtCard = ({item}) => {
      const {_id,img,title,location,maxPrice,minPrice,agentName,offerAmount,status} = item || {}
 
-  
+  console.log(status);
 
      return (
           <div>

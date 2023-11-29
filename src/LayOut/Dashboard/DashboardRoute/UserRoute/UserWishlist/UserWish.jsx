@@ -9,7 +9,7 @@ const UserWish = ({property}) => {
      const axiosSecure = useAxiosSecure()
      const [ ,refetch] = useAllWishlistData()
      const {_id,img,title,location,agentName,agentImg,verificationStatus, minPrice,maxPrice} = property || {}
-
+  console.log(property);
      const handleDelete =(id)=>{
           Swal.fire({
                title: "Are you sure?",

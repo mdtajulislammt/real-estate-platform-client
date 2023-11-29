@@ -12,7 +12,8 @@
     "img": "https://i.ibb.co/4WNXRjp/property1.jpg",
     "maxPrice": "90000",
     "minPrice": "60000",
-    "status": "pending"
+    "status": "pending",
+    "agentEmail": "mdtajulislammt505@gmail.com"
   },
   {
     "title": "Seaside Vacation Retreat",
@@ -24,7 +25,8 @@
     "img": "https://i.ibb.co/L6rqJ3W/property2.jpg",
     "maxPrice": "60000",
     "minPrice": "40000",
-    "status": "pending"
+    "status": "pending",
+    "agentEmail": "mdtajulislammt505@gmail.com"
   },
   {
     "title": "Charming Mountain Cabin",
@@ -36,7 +38,8 @@
     "img": "https://i.ibb.co/PGdrL25/property3.jpg",
     "maxPrice": "100000",
     "minPrice": "80000",
-    "status": "pending"
+    "status": "pending",
+    "agentEmail": "mdtajulislammt505@gmail.com"
   },
   {
     "title": "Spacious Urban Loft",
@@ -48,7 +51,8 @@
     "img": "https://i.ibb.co/Vp6G8k2/property4.jpg",
     "maxPrice": "30000",
     "minPrice": "10000",
-    "status": "pending"
+    "status": "pending",
+    "agentEmail": "mdtajulislammt505@gmail.com"
   }
   
 ]

@@ -26,6 +26,7 @@ const Propertydetails = () => {
     title,
     location,
     agentName,
+    agentEmail,
     description,
     agentImg,
     maxPrice,
@@ -44,6 +45,7 @@ const Propertydetails = () => {
     description,
     agentImg,
     maxPrice,
+    agentEmail,
     minPrice,
     verificationStatus,
     status
