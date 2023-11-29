@@ -1,52 +1,61 @@
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
+import { useParams } from "react-router-dom";
+import useAllPropertiesData from "../../../../../Hooks/useAllPropertiesData";
 import Swal from "sweetalert2";
 import useAuth from "../../../../../Hooks/useAuth";
 
-
-const AddProperty = () => {
+const AddPropertyupdate = () => {
      const axiosSecure = useAxiosSecure()
+     const [allProperties] = useAllPropertiesData();
      const {user} = useAuth()
+     const {id} = useParams()
+  const { register, handleSubmit,reset,formState: { errors },} = useForm();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const property = allProperties?.find(item=> item._id === id)
 
-  const onSubmit = async(data) => {
+  const {description,img,title,location,maxPrice,minPrice} = property || {}
 
-   
 
+
+ 
+
+
+  
+
+  const onSubmit = async (data) => {
     const propertyInfo = {
       title: data.title,
       location: data.location,
       agentName: user.displayName,
-      agentImage:  user.photoURL,
+      agentImage: user.photoURL,
       verificationStatus: data.verificationStatus,
       description: data.description,
       img: data.img,
       maxPrice: data.maxPrice,
       minPrice: data.minPrice,
-      status:'pending',
-      agentEmail:user.email
+      status: "pending",
+      agentEmail: user.email,
     };
     console.log(data);
 
-    const properties = await axiosSecure.post('/allProperties',propertyInfo);
-     console.log(properties);
-     if(properties.data.insertedId){
-          reset();
-          Swal.fire({
-               position: "top-end",
-               icon: "success",
-               title: `Property is added Successfully `,
-               showConfirmButton: false,
-               timer: 1500
-             });
-     }
+     //property Update
 
+          axiosSecure.put(`/allProperties/${id}`,propertyInfo)
+          .then(res=>{  
+               console.log(res.data.modifiedCount);
+               if(res.data.modifiedCount > 0){
+                Swal.fire({
+                     position: "top-end",
+                     icon: "success",
+                     title: `Property successfully updated`,
+                     showConfirmButton: false,
+                     timer: 1500
+                   });
+                   reset();
+               }
+            })
+       
   };
   return (
     <div className=" mx-8 lg:mx-20 my-5 border p-4 rounded-xl bg-slate-200">
@@ -60,6 +69,7 @@ const AddProperty = () => {
             {...register("title", { required: true })}
             type="text"
             placeholder="Title"
+            defaultValue={title}
             className="input input-bordered w-full "
           />
         </div>
@@ -72,7 +82,7 @@ const AddProperty = () => {
             {...register("location", { required: true })}
             type="text"
             placeholder="location"
-            defaultValue={""}
+            defaultValue={location}
             className="input input-bordered w-full "
           />
         </div>
@@ -84,7 +94,6 @@ const AddProperty = () => {
             </label>
 
             <input
-              {...register("agentName", { required: true })}
               type="text"
               placeholder="Agent Name"
               defaultValue={user.displayName}
@@ -98,7 +107,6 @@ const AddProperty = () => {
               <span className="label-text">Agent Image</span>
             </label>
             <input
-              {...register("agentImage", { required: true })}
               type="text"
               placeholder="Agent Image URL"
               defaultValue={user.photoURL}
@@ -130,8 +138,8 @@ const AddProperty = () => {
             <input
               {...register("img", { required: true })}
               type="text"
+              defaultValue={img}
               placeholder="Property Image URL"
-              
               className="input input-bordered w-full"
             />
           </div>
@@ -147,7 +155,8 @@ const AddProperty = () => {
               <input
                 {...register("minPrice", { required: true })}
                 type="number"
-                placeholder="MinPrice"
+                placeholder="MinPrice" 
+                defaultValue={minPrice}
                 className="input input-bordered w-full "
               />
             </div>
@@ -160,6 +169,7 @@ const AddProperty = () => {
                 {...register("maxPrice", { required: true })}
                 type="number"
                 placeholder="maxPrice"
+                defaultValue={maxPrice}
                 className="input input-bordered w-full "
               />
             </div>
@@ -168,16 +178,20 @@ const AddProperty = () => {
         {/* description */}
         <div>
           <div className="form-control w-full my-4">
-          <label className="label">
-            <span className="label-text">Description</span>
-          </label>
-          <input
-          {...register("description", { required: true })}
-          type="text"  id="" className="input input-bordered w-full h-28 " />
-        </div>
+            <label className="label">
+              <span className="label-text">Description</span>
+            </label>
+            <input
+              {...register("description", { required: true })}
+              type="text"
+              defaultValue={description}
+              className="input input-bordered w-full h-28 "
+            />
+          </div>
         </div>
         <input
           type="submit"
+          value={'Update'}
           className=" bg-green-500 p-2 px-8 font-semibold text-white rounded border-2 border-green-500 hover:text-black cursor-pointer hover:bg-transparent"
         />
       </form>
@@ -185,4 +199,4 @@ const AddProperty = () => {
   );
 };
 
-export default AddProperty;
+export default AddPropertyupdate;

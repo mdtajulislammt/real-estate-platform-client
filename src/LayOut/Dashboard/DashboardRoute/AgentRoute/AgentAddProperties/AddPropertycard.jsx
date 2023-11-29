@@ -44,22 +44,7 @@ const AddPropertycard = ({property}) => {
                }
              });
           }
-             //property Update
-             const handleUpdate =(id)=>{
-               axiosSecure.patch(`/allProperties/${id}`)
-               .then(res=>{  
-                    if(res.data.modifiedCount > 0){
-                     refetch();
-                     Swal.fire({
-                          position: "top-end",
-                          icon: "success",
-                          title: `Property successfully updated`,
-                          showConfirmButton: false,
-                          timer: 1500
-                        });
-                    }
-                 })
-             }
+            
      
      return (
           <div  className=" card rounded-none px-5 py-5 bg-white shadow shadow-black">
