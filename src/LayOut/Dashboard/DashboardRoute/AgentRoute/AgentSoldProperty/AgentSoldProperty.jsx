@@ -6,11 +6,16 @@ const AgentSoldProperty = () => {
      const payments = usePaymentsData();
      const {user} = useAuth();
      const paymentData = payments[0]?.filter(payment => payment.agentEmail === user.email)
-     console.log(paymentData);
      
+     const totalprice = paymentData.reduce((total , item)=>total+item.price,0);
+
+
      return (
           <div className=" ">
                <DashboardHeader heading={'My Sold Properties'}></DashboardHeader>
+               <div>
+                <h2 className=" text-2xl font-semibold text-end px-5 py-4 bg-[#ffb900]">Total Sold Amount --  ${totalprice}</h2>
+               </div>
                 <div className="overflow-x-auto bg-white rounded-lg m-5 p-5 border-2 h-screen shadow-xl">
   <table className="table">
     {/* head */}
