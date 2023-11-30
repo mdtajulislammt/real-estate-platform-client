@@ -44,7 +44,7 @@ const AgentRoute = () => {
            <span className="hidden md:block"> My Sold Properties</span>
          </NavLink>
           <NavLink
-         to={'/dashboard/manageUsers'}
+         to={'/dashboard/agentRequestProperty'}
            className={({ isActive, isPending }) =>
            isPending
              ? "pending"
