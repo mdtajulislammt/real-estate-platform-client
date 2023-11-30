@@ -5,7 +5,7 @@ import useAllPropertiesData from "../../../../../Hooks/useAllPropertiesData";
 
 const AdminManageProperty = () => {
      const axiosSecure = useAxiosSecure()
-     const [allProperties,refetch] = useAllPropertiesData()
+     const [allProperties, ,refetch] = useAllPropertiesData()
      
 
 

@@ -1,8 +1,11 @@
-# React + Vite
+## https://eventnest-2e9c0.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This website is a house selling website through which different types of places or houses are sold
 
-Currently, two official plugins are available:
+- Once you enter the website, you will get different types of property cards on your route and you can see the route details by clicking on the detail button on that card.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- If you like the property, you can add it to the wish list
+- But before adding to the wish list, you have to login then you can add to the wish list
+- Then you can offer that property at the price you want but within the budget
+- After making the offer you can pay if the agent chooses
+- You can also work as an agent on this website. To work as an agent, you have to login, then if the admin thinks, you can create an agent.

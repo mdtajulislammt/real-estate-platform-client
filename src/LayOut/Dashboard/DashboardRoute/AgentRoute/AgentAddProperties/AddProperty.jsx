@@ -117,7 +117,7 @@ const AddProperty = () => {
               {...register("verificationStatus")}
               type="text"
               placeholder=""
-              defaultValue={"not verified"}
+              defaultValue={"Not Verified"}
               className="input input-bordered w-full "
               readOnly
             />
