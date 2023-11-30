@@ -23,6 +23,8 @@ import AgentAddProperties from "../LayOut/Dashboard/DashboardRoute/AgentRoute/Ag
 import AddProperty from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentAddProperties/AddProperty";
 import AddPropertyupdate from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentAddProperties/AddPropertyupdate";
 import AgentSoldProperty from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentSoldProperty/AgentSoldProperty";
+import AgentRequestProperty from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentRequestProperty/AgentRequestProperty";
+import AdminManageReview from "../LayOut/Dashboard/DashboardRoute/AdminRoute/AdminManageReview/AdminManageReview";
 
 
 
@@ -51,7 +53,7 @@ export const router = createBrowserRouter([
      {
           path: "/allProperties/:id",
           element:<PrivateRoute><Propertydetails></Propertydetails></PrivateRoute>,
-          // loader:({params})=> fetch(`http://localhost:5000/allProperties/${params.id}`)
+          // loader:({params})=> fetch(`https://real-estate-platform-server.vercel.app/allProperties/${params.id}`)
      },
     ]
   },
@@ -63,12 +65,16 @@ export const router = createBrowserRouter([
 
           //admin routes
           {
+               path:"adminProfile",
+               element:<PrivateRoute><Adminroute><AdminProfile></AdminProfile></Adminroute></PrivateRoute>
+          },
+          {
                path:'manageUsers',
                element:<PrivateRoute><Adminroute><ManageUsers></ManageUsers></Adminroute></PrivateRoute>
           },
           {
-               path:"adminProfile",
-               element:<PrivateRoute><Adminroute><AdminProfile></AdminProfile></Adminroute></PrivateRoute>
+               path:"manageReviews",
+               element:<PrivateRoute><Adminroute><AdminManageReview></AdminManageReview></Adminroute></PrivateRoute>
           },
           //Agent routes
           {
@@ -90,6 +96,10 @@ export const router = createBrowserRouter([
           {
                path:"agentSoldProperty",
                element:<PrivateRoute><AgentPrivedRoute><AgentSoldProperty></AgentSoldProperty></AgentPrivedRoute></PrivateRoute>
+          },
+          {
+               path:"agentRequestProperty",
+               element:<PrivateRoute><AgentPrivedRoute><AgentRequestProperty></AgentRequestProperty></AgentPrivedRoute></PrivateRoute>
           },
           //User routes
           {

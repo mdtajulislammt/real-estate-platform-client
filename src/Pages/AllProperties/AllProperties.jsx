@@ -6,7 +6,8 @@ import AllProperty from "./AllProperty";
 import { Link } from "react-router-dom";
 
 const AllProperties = () => {
-     const [allProperties] = useAllPropertiesData()
+     const [allProperties] = useAllPropertiesData();
+     console.log(allProperties)
      const [search, setSearch] = useState('')
      const [searchBtn, setSearchBtn]= useState('');
 

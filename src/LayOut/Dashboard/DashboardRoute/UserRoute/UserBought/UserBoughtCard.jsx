@@ -30,8 +30,8 @@ const UserBoughtCard = ({item}) => {
                          <div className="">
                          <h1 className=" text-xl font-semibold p-1 px-2 bg-[#ffb900]">Offer: $ {offerAmount}</h1>
                          {
-                              // todo status == accepted change
-                              status == "pending" ?<Link to={`/dashboard/userBought/payment/${_id}`}><button className=" text-xl font-semibold p-1 px-2 flex items-center justify-center gap-2 hover:text-white bg-[#ffb900] mt-2 w-full" ><FaMoneyCheckDollar /> Pay</button></Link> : <button className=" text-xl font-semibold disabled:bg-slate-400 p-1 px-2 bg-[#ffb900] mt-2 w-full" disabled >{status}..</button>
+                              //  status == accepted change
+                              status == "accepted" ?<Link to={`/dashboard/userBought/payment/${_id}`}><button className=" text-xl font-semibold p-1 px-2 flex items-center justify-center gap-2 hover:text-white bg-[#ffb900] mt-2 w-full" ><FaMoneyCheckDollar /> Pay</button></Link> : <button className=" text-xl font-semibold disabled:bg-slate-400 p-1 px-2 bg-[#ffb900] mt-2 w-full" disabled >{status}..</button>
                          }
                          </div>
                     </div>

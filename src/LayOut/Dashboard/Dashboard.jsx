@@ -120,6 +120,7 @@ const Dashboard = () => {
 
         {/*  */}
       <div className="overflow-y-scroll h-screen w-full">
+        
         <Outlet></Outlet>
       </div>
       </div>
