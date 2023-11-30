@@ -11,6 +11,7 @@ const AllProperties = () => {
      const [search, setSearch] = useState('')
      const [searchBtn, setSearchBtn]= useState('');
 
+
      const handleSearch = (searchBtn)=>{
       setSearch(searchBtn)
     
@@ -51,7 +52,13 @@ const AllProperties = () => {
             }else if (property?.title.toLowerCase().includes(search.toLowerCase())){
                  return property ;
             }
-       })?.map(property=><AllProperty key={property._id} property={property}></AllProperty>
+       })?.map(property=>
+       <div key={property._id}>
+        {
+              property.verificationStatus === 'Verified' && <AllProperty  property={property}></AllProperty>
+            }
+       </div>
+       
           )
         }
       </div>

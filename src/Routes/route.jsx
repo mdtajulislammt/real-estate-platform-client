@@ -25,6 +25,7 @@ import AddPropertyupdate from "../LayOut/Dashboard/DashboardRoute/AgentRoute/Age
 import AgentSoldProperty from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentSoldProperty/AgentSoldProperty";
 import AgentRequestProperty from "../LayOut/Dashboard/DashboardRoute/AgentRoute/AgentRequestProperty/AgentRequestProperty";
 import AdminManageReview from "../LayOut/Dashboard/DashboardRoute/AdminRoute/AdminManageReview/AdminManageReview";
+import AdminManageProperty from "../LayOut/Dashboard/DashboardRoute/AdminRoute/AdminManageProperty/AdminManageProperty";
 
 
 
@@ -53,7 +54,7 @@ export const router = createBrowserRouter([
      {
           path: "/allProperties/:id",
           element:<PrivateRoute><Propertydetails></Propertydetails></PrivateRoute>,
-          // loader:({params})=> fetch(`https://real-estate-platform-server.vercel.app/allProperties/${params.id}`)
+          // loader:({params})=> fetch(`http://localhost:5000/allProperties/${params.id}`)
      },
     ]
   },
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
           {
                path:"manageReviews",
                element:<PrivateRoute><Adminroute><AdminManageReview></AdminManageReview></Adminroute></PrivateRoute>
+          },
+          {
+               path:"manageProperties",
+               element:<PrivateRoute><Adminroute><AdminManageProperty></AdminManageProperty></Adminroute></PrivateRoute>
           },
           //Agent routes
           {

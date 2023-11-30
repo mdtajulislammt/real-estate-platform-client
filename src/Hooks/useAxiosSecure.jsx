@@ -1,10 +1,10 @@
 import axios from "axios";
-import useAuth from "./useAuth";
+import useAuth from "./useAuth"; 
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const axiosSecure = axios.create({
-     baseURL:'https://real-estate-platform-server.vercel.app'
+     baseURL:'http://localhost:5000'
 })
 
 const useAxiosSecure = () => {

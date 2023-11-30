@@ -47,7 +47,30 @@ const ManageUsers = () => {
             });
         }
      })
+
+
  }
+  //make admin 
+  const handleMakeFraud =user=>{
+    console.log(user);
+     axiosSecure.patch(`/users/fraud/${user._id}`)
+     .then(res=>{ 
+      console.log(res);
+        if(res.data.modifiedCount > 0){
+         refetch();
+         Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${user.name} is an Fraud`,
+              showConfirmButton: false,
+              timer: 1500
+            });
+
+
+        }
+     })
+ }
+
 
   //user delete
   const handleDelete = id=>{
@@ -102,7 +125,7 @@ const ManageUsers = () => {
           <td>{user.email}</td> 
           <td>{ user.role === "admin" ? <button  className=" bg-[#ffb900] p-1 text-xs font-medium text-white hover:text-black px-3 rounded">Admin</button>: <button onClick={()=> handleMakeAdmin(user)} className=" bg-green-500 p-1 text-xs font-medium text-white hover:text-black px-3 rounded">Make Admin</button>}</td> 
           <td>{user.role === "agent" ? <button  className=" bg-[#ffb900] p-1 text-xs font-medium text-white hover:text-black px-3 rounded">Agent</button>:<button onClick={()=> handleMakeAgent(user)} className=" bg-green-500 p-1 text-xs font-medium text-white hover:text-black px-3 rounded">Make Agent</button>}</td> 
-          <td><button className=" bg-red-400 p-1 text-xs font-medium text-white hover:text-black px-3 rounded">Fraud</button></td> 
+          <td>{user.role === "fraud" ? <button  className=" bg-red-400 p-1 text-xs font-medium text-white hover:text-black px-3 rounded">Fraud</button>:<button onClick={()=> handleMakeFraud(user)} className=" bg-red-400 p-1 text-xs font-medium text-white hover:text-black px-3 rounded">Make Fraud</button>}</td>  
           <td><button onClick={()=> handleDelete(user._id)} className=" bg-red-500 p-1 text-xl font-medium text-white hover:text-black px-2 rounded"><AiFillDelete /></button></td>  
         </tr>)
       }

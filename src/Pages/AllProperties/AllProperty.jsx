@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 
 const AllProperty = ({property}) => {
      const {_id,img,title,location,agentName,agentImg,verificationStatus,maxPrice,minPrice} = property || {}
+     console.log(verificationStatus);
      return (
-          <div  className=" card rounded-none px-5 py-5 bg-white shadow shadow-black">
+          <div>
+            
+            <div  className=" card rounded-none px-5 py-5 bg-white shadow shadow-black">
           <figure className="pb-2 ">
             <img
               src={img}
@@ -37,6 +40,7 @@ const AllProperty = ({property}) => {
 
           </div>
         </div>
+          </div>
      );
 };
 

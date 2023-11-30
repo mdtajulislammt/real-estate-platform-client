@@ -51,6 +51,7 @@ const Propertydetails = () => {
     status
 
     }
+
    axiosSecure.post('/wishlist',propertyInfo)
    .then(res=>{
     console.log(res);
