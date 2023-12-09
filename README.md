@@ -2,6 +2,8 @@ update
 ## https://eventnest-2e9c0.web.app/
 ### Backend code : https://github.com/mdtajulislammt/real-estate-platform-server
 
+#### Thecnology : tailwind,react,express,node.js,mongoDB,firebase
+
 This website is a house selling website through which different types of places or houses are sold
 
 - Once you enter the website, you will get different types of property cards on your route and you can see the route details by clicking on the detail button on that card.
