@@ -2,7 +2,8 @@ update
 ## https://eventnest-2e9c0.web.app/
 ### Backend code : https://github.com/mdtajulislammt/real-estate-platform-server
 
-#### Thecnology : tailwind,react,express,node.js,mongoDB,firebase
+#### Thecnology : React.js, Node.js, MongoDB, Express, Jwt, Firebase, Tailwind,
+TanStack Query
 
 This website is a house selling website through which different types of places or houses are sold
 
